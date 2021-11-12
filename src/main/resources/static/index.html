@@ -1,46 +1,65 @@
-<html>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Post Test HTML</title>
-    <link href="/webjars/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body>
-<form method="post" action="/demo/add">
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <meta content="" name="description">
+    <meta content="Mark Otto, Jacob Thornton, and Bootstrap contributors" name="author">
+    <meta content="Hugo 0.88.1" name="generator">
+    <title>Signin Template · Bootstrap v5.1</title>
 
-    <div class="form-row">
-        <div class="form-group col-md-6">
-            <label for="UserID">UserID</label>
-            <input type="text" class="form-control" id="UserID" name ="UserID" placeholder="UserID">
-        </div>
-        <div class="form-group col-md-6">
-            <label for="password">Password</label>
-            <input type="password" class="form-control" id="password" name="password" placeholder="Password">
-        </div>
+    <link href="https://getbootstrap.com/docs/5.1/examples/sign-in/" rel="canonical">
+
+    <!-- Bootstrap core CSS -->
+<link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+
+    
+    <!-- Custom styles for this template -->
+    <link href="signin.css" rel="stylesheet">
+  </head>
+  <body class="text-center">
+    
+<main class="form-signin">
+  <form>
+    <img alt="" class="mb-4" height="57" src="../assets/brand/bootstrap-logo.svg" width="72">
+    <h1 class="h3 mb-3 fw-normal">Sign in</h1>
+
+    <div class="form-floating">
+      <input class="form-control" id="floatingInput" placeholder="name@example.com" type="email">
+      <label for="floatingInput">Email</label>
+    </div>
+    <div class="form-floating">
+      <input class="form-control" id="floatingPassword" placeholder="Password" type="password">
+      <label for="floatingPassword">Password</label>
     </div>
 
-    <div class="form-row">
-        <div class="form-group col-md-6">
-            <label for="email">Email</label>
-            <input type="email" class="form-control" id="email" name="email" placeholder="Email">
-        </div>
-
-        <div class="form-group col-md-6">
-            <label for="phonenumber">Phone Number</label>
-            <input type="tel" class="form-control" id="phonenumber" name="phonenumber" placeholder="PhoneNumber">
-        </div>
-
-        <div class="form-group col-md-6">
-            <label for="nickname">NickName</label>
-            <input type="text" class="form-control" id="nickname" name="nickname" placeholder="NickName">
-        </div>
+    <div class="checkbox mb-3">
+      <label>
+        <input type="checkbox" value="remember-me"> Remember me
+      </label>
     </div>
+    <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
+    <p class="mt-5 mb-3 text-muted">Calendar</p>
+  </form>
+</main>
 
-    <div>
-        <button type="submit" class="btn btn-primary">Save</button>
-    </div>
-</form>
-</body>
+
+    
+  </body>
 </html>
