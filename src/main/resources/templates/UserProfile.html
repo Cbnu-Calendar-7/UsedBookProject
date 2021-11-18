@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="utf-8">
     <!--  This file has been downloaded from bootdey.com @bootdey on twitter -->
@@ -10,104 +10,80 @@
     <link href="https://netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 	<script src="https://netdna.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
+
 <body>
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
 <div class="container bootstrap snippets bootdeys">
+
     <div class="row" id="user-profile">
         <div class="col-lg-3 col-md-4 col-sm-4">
             <div class="main-box clearfix">
-                <h2>John Doe </h2>
-                <div class="profile-status">
-                    <i class="fa fa-check-circle"></i> Online
-                </div>
-                <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" class="profile-img img-responsive center-block">
-                <div class="profile-label">
-                    <span class="label label-danger">Admin</span>
-                </div>
-
-                <div class="profile-stars">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star-o"></i>
-                    <span>Super User</span>
-                </div>
-
-                <div class="profile-since">
-                    Member since: Jan 2012
-                </div>
-
-                <div class="profile-details">
-                    <ul class="fa-ul">
-                        <li><i class="fa-li fa fa-truck"></i>Orders: <span>456</span></li>
-                        <li><i class="fa-li fa fa-comment"></i>Posts: <span>828</span></li>
-                        <li><i class="fa-li fa fa-tasks"></i>Tasks done: <span>1024</span></li>
-                    </ul>
-                </div>
-
-                <div class="profile-message-btn center-block text-center">
-                    <a href="#" class="btn btn-success">
-                        <i class="fa fa-envelope"></i> Send message
-                    </a>
-                </div>
+                <h2>노혜성</h2>
+                <img src="asset/image/userimage.png" alt="유저 이미지" class="profile-img img-responsive center-block">
             </div>
         </div>
 
         <div class="col-lg-9 col-md-8 col-sm-8">
+
+            <!-- 회원 정보 수정, 회원 탈퇴 버튼-->
             <div class="main-box clearfix">
-                <div class="profile-header">
+                <form class="profile-header" method="get" action="/">
                     <h3><span>User info</span></h3>
+                    <div>
+                        <a href="#" class="btn btn-primary edit-profile">
+                            <i class="fa fa-pencil-square fa-lg"></i> 회원 정보 수정
+                        </a>
+                    </div>
+                </form>
+                <div class="profile-header">
                     <a href="#" class="btn btn-primary edit-profile">
-                        <i class="fa fa-pencil-square fa-lg"></i> Edit profile
+                        <i class="fa fa-pencil-square fa-lg"></i> 회원 탈퇴
                     </a>
                 </div>
 
+
                 <div class="row profile-user-info">
                     <div class="col-sm-8">
+
                         <div class="profile-user-details clearfix">
                             <div class="profile-user-details-label">
-                                First Name
+                                이름
                             </div>
                             <div class="profile-user-details-value">
-                                John
+                                노혜성
                             </div>
                         </div>
+
                         <div class="profile-user-details clearfix">
                             <div class="profile-user-details-label">
-                                Last Name
+                                닉네임
                             </div>
                             <div class="profile-user-details-value">
-                                Doe
+                                안녕
                             </div>
                         </div>
+
                         <div class="profile-user-details clearfix">
                             <div class="profile-user-details-label">
-                                Address
+                                이메일
                             </div>
                             <div class="profile-user-details-value">
-                                10880 Malibu Point,
-                                <br> Malibu, Calif., 90265
+                                Hello@naver.com
                             </div>
                         </div>
+
                         <div class="profile-user-details clearfix">
                             <div class="profile-user-details-label">
-                                Email
+                                전화번호
                             </div>
                             <div class="profile-user-details-value">
-                                johndoe@bootdey.com
+                                010 - 1234 - 5678
                             </div>
                         </div>
-                        <div class="profile-user-details clearfix">
-                            <div class="profile-user-details-label">
-                                Phone number
-                            </div>
-                            <div class="profile-user-details-value">
-                                011 223 344 556 677
-                            </div>
-                        </div>
+
                     </div>
-                    <div class="col-sm-4 profile-social">
+
+<!--                    <div class="col-sm-4 profile-social">
                         <ul class="fa-ul">
                             <li><i class="fa-li fa fa-twitter-square"></i><a href="#">@scjohansson</a></li>
                             <li><i class="fa-li fa fa-linkedin-square"></i><a href="#">John Doe </a></li>
@@ -115,349 +91,73 @@
                             <li><i class="fa-li fa fa-skype"></i><a href="#">Black_widow</a></li>
                             <li><i class="fa-li fa fa-instagram"></i><a href="#">Avenger_Scarlett</a></li>
                         </ul>
-                    </div>
+                    </div>-->
+
                 </div>
 
                 <div class="tabs-wrapper profile-tabs">
                     <ul class="nav nav-tabs">
-                        <li class="active"><a href="#tab-activity" data-toggle="tab">Activity</a></li>
-                        <li><a href="#tab-friends" data-toggle="tab">Friends</a></li>
-                        <li><a href="#tab-chat" data-toggle="tab">Chat</a></li>
+                        <li class="active"><a href="#tab-salelist" data-toggle="tab">판매 등록 목록</a></li>
+                        <li><a href="#tab-likelist" data-toggle="tab">찜목록</a></li>
+                        <li><a href="#tab-chat" data-toggle="tab">채팅 목록</a></li>
                     </ul>
 
                     <div class="tab-content">
-                        <div class="tab-pane fade in active" id="tab-activity">
-
+                        <div class="tab-pane fade in active" id="tab-salelist">
                             <div class="table-responsive">
                                 <table class="table">
                                     <tbody>
                                         <tr>
-                                            <td class="text-center">
-                                                <i class="fa fa-comment"></i>
+                                            <td>
+                                                Sale List Sample
                                             </td>
                                             <td>
-                                                John Doe  posted a comment in <a href="#">Avengers Initiative</a> project.
-                                            </td>
-                                            <td>
-                                                2014/08/08 12:08
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="text-center">
-                                                <i class="fa fa-truck"></i>
-                                            </td>
-                                            <td>
-                                                John Doe  changed order status from <span class="label label-primary">Pending</span> to <span class="label label-success">Completed</span>
-                                            </td>
-                                            <td>
-                                                2014/08/08 12:08
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="text-center">
-                                                <i class="fa fa-check"></i>
-                                            </td>
-                                            <td>
-                                                John Doe  posted a comment in <a href="#">Lost in Translation opening scene</a> discussion.
-                                            </td>
-                                            <td>
-                                                2014/08/08 12:08
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="text-center">
-                                                <i class="fa fa-users"></i>
-                                            </td>
-                                            <td>
-                                                John Doe  posted a comment in <a href="#">Avengers Initiative</a> project.
-                                            </td>
-                                            <td>
-                                                2014/08/08 12:08
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="text-center">
-                                                <i class="fa fa-heart"></i>
-                                            </td>
-                                            <td>
-                                                John Doe  changed order status from <span class="label label-warning">On Hold</span> to <span class="label label-danger">Disabled</span>
-                                            </td>
-                                            <td>
-                                                2014/08/08 12:08
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="text-center">
-                                                <i class="fa fa-check"></i>
-                                            </td>
-                                            <td>
-                                                John Doe  posted a comment in <a href="#">Lost in Translation opening scene</a> discussion.
-                                            </td>
-                                            <td>
-                                                2014/08/08 12:08
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="text-center">
-                                                <i class="fa fa-truck"></i>
-                                            </td>
-                                            <td>
-                                                John Doe  changed order status from <span class="label label-primary">Pending</span> to <span class="label label-success">Completed</span>
-                                            </td>
-                                            <td>
-                                                2014/08/08 12:08
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="text-center">
-                                                <i class="fa fa-users"></i>
-                                            </td>
-                                            <td>
-                                                John Doe  posted a comment in <a href="#">Avengers Initiative</a> project.
-                                            </td>
-                                            <td>
-                                                2014/08/08 12:08
+                                                2021/08/08 12:00
                                             </td>
                                         </tr>
                                     </tbody>
                                 </table>
                             </div>
-
                         </div>
-
-                        <div class="tab-pane fade" id="tab-friends">
-                            <ul class="widget-users row">
-                                <li class="col-md-6">
-                                    <div class="img">
-                                        <img src="https://bootdey.com/img/Content/avatar/avatar1.png" class="img-responsive" alt="">
-                                    </div>
-                                    <div class="details">
-                                        <div class="name">
-                                            <a href="#">John Doe </a>
-                                        </div>
-                                        <div class="time">
-                                            <i class="fa fa-clock-o"></i> Last online: 5 minutes ago
-                                        </div>
-                                        <div class="type">
-                                            <span class="label label-danger">Admin</span>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="col-md-6">
-                                    <div class="img">
-                                        <img src="https://bootdey.com/img/Content/avatar/avatar1.png" class="img-responsive"  alt="">
-                                    </div>
-                                    <div class="details">
-                                        <div class="name">
-                                            <a href="#">Mila Kunis</a>
-                                        </div>
-                                        <div class="time online">
-                                            <i class="fa fa-check-circle"></i> Online
-                                        </div>
-                                        <div class="type">
-                                            <span class="label label-warning">Pending</span>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="col-md-6">
-                                    <div class="img">
-                                        <img src="https://bootdey.com/img/Content/avatar/avatar1.png" class="img-responsive"  alt="">
-                                    </div>
-                                    <div class="details">
-                                        <div class="name">
-                                            <a href="#">Ryan Gossling</a>
-                                        </div>
-                                        <div class="time online">
-                                            <i class="fa fa-check-circle"></i> Online
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="col-md-6">
-                                    <div class="img">
-                                        <img src="https://bootdey.com/img/Content/avatar/avatar1.png" class="img-responsive"  alt="">
-                                    </div>
-                                    <div class="details">
-                                        <div class="name">
-                                            <a href="#">Robert Downey Jr.</a>
-                                        </div>
-                                        <div class="time">
-                                            <i class="fa fa-clock-o"></i> Last online: Thursday
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="col-md-6">
-                                    <div class="img">
-                                        <img src="https://bootdey.com/img/Content/avatar/avatar1.png" class="img-responsive"  alt="">
-                                    </div>
-                                    <div class="details">
-                                        <div class="name">
-                                            <a href="#">Emma Watson</a>
-                                        </div>
-                                        <div class="time">
-                                            <i class="fa fa-clock-o"></i> Last online: 1 week ago
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="col-md-6">
-                                    <div class="img">
-                                        <img src="https://bootdey.com/img/Content/avatar/avatar1.png" class="img-responsive"  alt="">
-                                    </div>
-                                    <div class="details">
-                                        <div class="name">
-                                            <a href="#">George Clooney</a>
-                                        </div>
-                                        <div class="time">
-                                            <i class="fa fa-clock-o"></i> Last online: 1 month ago
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="col-md-6">
-                                    <div class="img">
-                                        <img src="https://bootdey.com/img/Content/avatar/avatar1.png" class="img-responsive"  alt="">
-                                    </div>
-                                    <div class="details">
-                                        <div class="name">
-                                            <a href="#">Mila Kunis</a>
-                                        </div>
-                                        <div class="time online">
-                                            <i class="fa fa-check-circle"></i> Online
-                                        </div>
-                                        <div class="type">
-                                            <span class="label label-warning">Pending</span>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="col-md-6">
-                                    <div class="img">
-                                        <img src="https://bootdey.com/img/Content/avatar/avatar1.png" class="img-responsive"  alt="">
-                                    </div>
-                                    <div class="details">
-                                        <div class="name">
-                                            <a href="#">Ryan Gossling</a>
-                                        </div>
-                                        <div class="time online">
-                                            <i class="fa fa-check-circle"></i> Online
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-                            <br>
-                            <a href="#" class="btn btn-success pull-right">View all users</a>
+                        <div class="tab-pane fade in active" id="tab-likelist">
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <tbody>
+                                    <tr>
+                                        <td>
+                                            Like List Sample
+                                        </td>
+                                        <td>
+                                            2021/08/08 12:00
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
-
-                        <div class="tab-pane fade" id="tab-chat">
-                            <div class="conversation-wrapper">
-                                <div class="conversation-content">
-                                    <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto; height: 340px;">
-                                        <div class="conversation-inner" style="overflow: hidden; width: auto; height: 340px;">
-
-                                            <div class="conversation-item item-left clearfix">
-                                                <div class="conversation-user">
-                                                    <img src="https://bootdey.com/img/Content/avatar/avatar1.png" class="img-responsive"  alt="">
-                                                </div>
-                                                <div class="conversation-body">
-                                                    <div class="name">
-                                                        Ryan Gossling
-                                                    </div>
-                                                    <div class="time hidden-xs">
-                                                        September 21, 2013 18:28
-                                                    </div>
-                                                    <div class="text">
-                                                        I don't think they tried to market it to the billionaire, spelunking, base-jumping crowd.
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="conversation-item item-right clearfix">
-                                                <div class="conversation-user">
-                                                    <img src="https://bootdey.com/img/Content/avatar/avatar1.png" class="img-responsive"  alt="">
-                                                </div>
-                                                <div class="conversation-body">
-                                                    <div class="name">
-                                                        Mila Kunis
-                                                    </div>
-                                                    <div class="time hidden-xs">
-                                                        September 21, 2013 12:45
-                                                    </div>
-                                                    <div class="text">
-                                                        Normally, both your asses would be dead as fucking fried chicken, but you happen to pull this shit while I'm in a transitional period so I don't wanna kill you, I wanna help you.
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="conversation-item item-right clearfix">
-                                                <div class="conversation-user">
-                                                    <img src="https://bootdey.com/img/Content/avatar/avatar1.png" class="img-responsive"  alt="">
-                                                </div>
-                                                <div class="conversation-body">
-                                                    <div class="name">
-                                                        Mila Kunis
-                                                    </div>
-                                                    <div class="time hidden-xs">
-                                                        September 21, 2013 12:45
-                                                    </div>
-                                                    <div class="text">
-                                                        Normally, both your asses would be dead as fucking fried chicken, but you happen to pull this shit while I'm in a transitional period so I don't wanna kill you, I wanna help you.
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="conversation-item item-left clearfix">
-                                                <div class="conversation-user">
-                                                    <img src="https://bootdey.com/img/Content/avatar/avatar1.png" class="img-responsive"  alt="">
-                                                </div>
-                                                <div class="conversation-body">
-                                                    <div class="name">
-                                                        Ryan Gossling
-                                                    </div>
-                                                    <div class="time hidden-xs">
-                                                        September 21, 2013 18:28
-                                                    </div>
-                                                    <div class="text">
-                                                        I don't think they tried to market it to the billionaire, spelunking, base-jumping crowd.
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="conversation-item item-right clearfix">
-                                                <div class="conversation-user">
-                                                    <img src="https://bootdey.com/img/Content/avatar/avatar1.png" class="img-responsive"  alt="">
-                                                </div>
-                                                <div class="conversation-body">
-                                                    <div class="name">
-                                                        Mila Kunis
-                                                    </div>
-                                                    <div class="time hidden-xs">
-                                                        September 21, 2013 12:45
-                                                    </div>
-                                                    <div class="text">
-                                                        Normally, both your asses would be dead as fucking fried chicken, but you happen to pull this shit while I'm in a transitional period so I don't wanna kill you, I wanna help you.
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                        <div class="slimScrollBar" style="width: 7px; position: absolute; top: 0px; opacity: 0.4; display: block; border-radius: 7px; z-index: 99; right: 1px; background: rgb(0, 0, 0);"></div>
-                                        <div class="slimScrollRail" style="width: 7px; height: 100%; position: absolute; top: 0px; display: none; border-radius: 7px; opacity: 0.2; z-index: 90; right: 1px; background: rgb(51, 51, 51);"></div>
-                                    </div>
-                                </div>
-                                <div class="conversation-new-message">
-                                    <form>
-                                        <div class="form-group">
-                                            <textarea class="form-control" rows="2" placeholder="Enter your message..."></textarea>
-                                        </div>
-
-                                        <div class="clearfix">
-                                            <button type="submit" class="btn btn-success pull-right">Send message</button>
-                                        </div>
-                                    </form>
-                                </div>
+                        <div class="tab-pane fade in active" id="tab-chat">
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <tbody>
+                                    <tr>
+                                        <td>
+                                            Chat List Sample
+                                        </td>
+                                        <td>
+                                            2021/08/08 12:00
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </div>
                 </div>
-
             </div>
+
         </div>
     </div>
 </div>
-
 <style type="text/css">
 body{margin-top:20px;
 background:#eee;
@@ -1077,9 +777,6 @@ textarea.form-control {
 }
 
 </style>
-
-<script type="text/javascript">
-
-</script>
+<script type="text/javascript"></script>
 </body>
 </html>

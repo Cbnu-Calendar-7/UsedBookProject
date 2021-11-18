@@ -18,6 +18,7 @@ public class User
     private String email; // 이메일
     private String phonenumber; // 휴대폰번호
     private String nickname;  // 닉네임
+
     private String saleslist; // 판매리스트
     private String wishlist; // 찜리스트
     private String chatlist; // 채팅리스트
