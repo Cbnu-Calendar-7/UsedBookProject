@@ -16,6 +16,7 @@ public class User
 
     private String password; // 패스워드
     private String email; // 이메일
+    private String username; // 이름
     private String phonenumber; // 휴대폰번호
     private String nickname;  // 닉네임
 
