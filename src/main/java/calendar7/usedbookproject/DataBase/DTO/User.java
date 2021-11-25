@@ -27,13 +27,14 @@ public class User
     // JPA를 위한 기본생성자
     protected User() {}
 
-    public User(String UserID, String password, String email, String phonenumber, String nickname)
+    public User(String UserID, String password, String email, String phonenumber, String nickname, String username)
     {
         this.UserID = UserID;
         this.password = password;
         this.email = email;
         this.phonenumber = phonenumber;
         this.nickname = nickname;
+        this.username = username;
         this.saleslist = "";
         this.wishlist = "";
         this.chatlist = "";
@@ -45,6 +46,7 @@ public class User
                 "UserID='" + UserID + '\'' +
                 ", password='" + password + '\'' +
                 ", email='" + email + '\'' +
+                ", username='" + username + '\'' +
                 ", phonenumber='" + phonenumber + '\'' +
                 ", nickname='" + nickname + '\'' +
                 ", saleslist='" + saleslist + '\'' +
