@@ -1,13 +1,22 @@
 package calendar7.usedbookproject;
 
+import calendar7.usedbookproject.DataBase.DAO.SalePostRepository;
+import calendar7.usedbookproject.DataBase.DTO.SalePost;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+
+import java.util.List;
 
 @Controller
-@RequestMapping
 public class MainController
 {
+
+    private SalePostRepository postrepo;
+
+    @Autowired
+    public MainController(SalePostRepository postrepo) {this.postrepo = postrepo;}
 
     // (기본페이지) 로그인 페이지로 이동
     @GetMapping(path = "/")
@@ -36,6 +45,20 @@ public class MainController
     // 프로필 페이지로 이동
     @GetMapping(path = "/UserProfile")
     public String ToCreateAccoungPage() { return "UserProfile"; }
+
+
+    @GetMapping(path = "/add")
+    public String addGet() { return "main/Add_Post"; }
+
+
+    @GetMapping(path = "/list")
+    public String list(Model model)
+    {
+        List<SalePost> list = postrepo.findAll();
+        model.addAttribute("items", list);
+        return "main/List_View";
+    }
+
 
 
 }

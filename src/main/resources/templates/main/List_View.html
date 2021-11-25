@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+
+  <!-- SITE TITTLE -->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Classimax</title>
+  
+  <!-- FAVICON -->
+  <link href="img/favicon.png" rel="shortcut icon">
+  <!-- PLUGINS CSS STYLE -->
+  <!-- <link href="plugins/jquery-ui/jquery-ui.min.css" rel="stylesheet"> -->
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="plugins/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="plugins/bootstrap/css/bootstrap-slider.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
+  <!-- Font Awesome -->
+  <link href="plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <!-- Owl Carousel -->
+  <link href="plugins/slick-carousel/slick/slick.css" rel="stylesheet">
+  <link href="plugins/slick-carousel/slick/slick-theme.css" rel="stylesheet">
+  <!-- Fancy Box -->
+  <link href="plugins/fancybox/jquery.fancybox.pack.css" rel="stylesheet">
+  <link href="plugins/jquery-nice-select/css/nice-select.css" rel="stylesheet">
+  <!-- CUSTOM CSS -->
+  <link href="css/style.css" rel="stylesheet">
+
+
+</head>
+
+<body class="body-wrapper">
+<!--네비 바-->
+<section>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<nav class="navbar navbar-expand-lg navbar-light navigation">
+					<a class="navbar-brand" href="../themes/index.html">
+						<img src="images/logo.png" alt="">
+					</a>
+					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+					 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+						<span class="navbar-toggler-icon"></span>
+					</button>
+					<div class="collapse navbar-collapse" id="navbarSupportedContent">
+						<ul class="navbar-nav ml-auto main-nav ">
+							<li class="nav-item active">
+								<a class="nav-link" href="../themes/index.html">Home</a>
+							</li>
+							<li class="nav-item dropdown dropdown-slide">
+								<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="">Dashboard<span><i class="fa fa-angle-down"></i></span>
+								</a>
+
+								<!-- Dropdown list -->
+								<div class="dropdown-menu">
+									<a class="dropdown-item" href="../themes/dashboard.html">Dashboard</a>
+									<a class="dropdown-item" href="../themes/dashboard-my-ads.html">Dashboard My Ads</a>
+									<a class="dropdown-item" href="../themes/dashboard-favourite-ads.html">Dashboard Favourite Ads</a>
+									<a class="dropdown-item" href="../themes/dashboard-archived-ads.html">Dashboard Archived Ads</a>
+									<a class="dropdown-item" href="../themes/dashboard-pending-ads.html">Dashboard Pending Ads</a>
+								</div>
+							</li>
+							<li class="nav-item dropdown dropdown-slide">
+								<a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+									Pages <span><i class="fa fa-angle-down"></i></span>
+								</a>
+								<!-- Dropdown list -->
+								<div class="dropdown-menu">
+									<a class="dropdown-item" href="../themes/about-us.html">About Us</a>
+									<a class="dropdown-item" href="../themes/contact-us.html">Contact Us</a>
+									<a class="dropdown-item" href="../themes/user-profile.html">User Profile</a>
+									<a class="dropdown-item" href="../themes/404.html">404 Page</a>
+									<a class="dropdown-item" href="../themes/package.html">Package</a>
+									<a class="dropdown-item" href="../themes/single.html">Single Page</a>
+									<a class="dropdown-item" href="../themes/store.html">Store Single</a>
+									<a class="dropdown-item" href="../themes/single-blog.html">Single Post</a>
+									<a class="dropdown-item" href="../themes/blog.html">Blog</a>
+
+								</div>
+							</li>
+							<li class="nav-item dropdown dropdown-slide">
+								<a class="nav-link dropdown-toggle" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+									Listing <span><i class="fa fa-angle-down"></i></span>
+								</a>
+								<!-- Dropdown list -->
+								<div class="dropdown-menu">
+									<a class="dropdown-item" href="../themes/category.html">Ad-Gird View</a>
+									<a class="dropdown-item" href="ad-listing-list.html">Ad-List View</a>
+								</div>
+							</li>
+						</ul>
+						<ul class="navbar-nav ml-auto mt-10">
+							<li class="nav-item">
+								<a class="nav-link login-button" href="../themes/login.html">Login</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link text-white add-button" href="ad-listing.html"><i class="fa fa-plus-circle"></i> Add Listing</a>
+							</li>
+						</ul>
+					</div>
+				</nav>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!--검색 창-->
+<section class="page-search">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<!-- Advance Search -->
+				<div class="advance-search">
+					<form method="get">
+						<div class="form-row">
+							<div class="form-group col-md-10">
+								<input type="text" class="form-control my-2 my-lg-0" id="inputtext4" placeholder="검색어">
+							</div>
+							<div class="form-group col-md-2">
+								<button type="submit" class="btn btn-primary" style="background-color:transparent; color: white; border-color: white;">검색</button>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- 검색 결과-->
+<section class="section-sm">
+	<div class="container">
+
+
+		<div class="row">
+			<div class="col-md-12">
+				<div class="search-result bg-gray">
+					<h2>"검색어"의 검색 결과</h2>
+					<p>약 1,234 개 2021/11/23</p>
+				</div>
+			</div>
+		</div>
+
+
+        <div class="row">
+			<div class="col-md-12">
+
+                <!--검색 내용 필터-->
+				<div class="category-search-filter">
+					<div class="row">
+						<div class="col-md-6">
+							<select>
+								<option>Most Recent</option>
+								<option value="1">Most Popular</option>
+								<option value="2">Lowest Price</option>
+								<option value="4">Highest Price</option>
+							</select>
+						</div>
+						<div class="col-md-6">
+							<div class="view">
+								<button class="btn btn-outline-primary float-end"
+										onclick="location.href='Ad-listing.html'"
+										th:onclick="|location.href='@{/add}'|"
+										type="button">
+									<strong>상품 등록</strong>
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+				<!-- 검색 리스트 시작  -->
+
+				<div class="ad-listing-list mt-20" th:each="item : ${items}">
+                    <div class="row">
+
+						<!--상품 이미지-->
+                        <div class="col-lg-2 align-self-center">
+                            <a href="../themes/single.html">
+                            <img th:src="${item.image_link}" class="img-fluid" style="width: 160px; height: 200px;" alt="책 이미지">
+                            </a>
+                        </div>
+
+                    	<div class="col">
+                        	<div class="row">
+
+								<div class="col"><br>
+									<div>
+										<a href="../themes/single.html" class="font-weight-bold" th:text="${item.title}"></a>
+									</div>
+									<ul class="list-inline mt-2 mb-3">
+										<!-- 지은이 -->
+										<li class="list-inline-item">
+											<i class="bi bi-pencil"></i>
+											<a th:text="${item.author}"></a>
+										</li>
+
+										<!-- 출판사 -->
+										<li class="list-inline-item">
+											<i class="bi bi-building"></i>
+											<a th:text="${item.publisher}"></a>
+										</li>
+
+										<!-- 출판일 -->
+										<li class="list-inline-item">
+											<i class="bi bi-calendar2-day"></i>
+											<a th:text="${item.publication_date}"></a>
+										</li>
+										<br>
+										<li class="list-inline-item">
+											<i class="bi bi-caret-right"></i>
+											<a th:if="${item.deal_Method} == 0" th:text=" '직거래(' + ${item.deal_place.toString()} + ')' "></a>
+											<a th:unless="${item.deal_Method} == 0" th:text="택배"></a>
+										</li>
+
+										<li class="list-inline-item">
+											<i class="bi bi-caret-right"></i>
+											<a th:if="${item.negotiable} != 0" th:text="'흥정가능'"></a>
+											<a th:unless="${item.negotiable} != 0" th:text="'흥정 불가능'"></a>
+										</li>
+									</ul>
+
+									<div>
+										<a class="text-danger font-weight-bold" th:text=" '판매 가격:' + ${item.sale_Price} + '원' "></a><br>
+										<small class="text-muted" th:text=" '원래 가격:' + ${item.origin_Price} + '원' "></small>
+									</div>
+								</div>
+								<div class="col-3" style="font-size: 14px;"><br>
+									<h6>책 상태</h6>
+									<div>
+										<a style="font-weight: bold">밑줄 흔적</a>
+										<a th:if="${item.underline == 0}" th:class="font-weight-light">없음</a>
+										<a th:if="${item.underline == 1}" th:class="font-weight-light">연필/샤프</a>
+										<a th:if="${item.underline == 2}" th:class="font-weight-light">볼펜/형광펜</a>
+									</div>
+									<div>
+										<a style="font-weight: bold">필기 흔적</a>
+										<a th:if="${item.note == 0}" th:class="font-weight-light">없음</a>
+										<a th:if="${item.note == 1}" th:class="font-weight-light">연필/샤프</a>
+										<a th:if="${item.note == 2}" th:class="font-weight-light">볼펜/형광펜</a>
+									</div>
+									<div>
+										<a style="font-weight: bold">페이지 훼손/변색</a>
+										<a th:if="${item.damage != 0}" th:class="font-weight-light">없음</a>
+										<a th:unless="${item.damage != 0}" th:class="font-weight-light">있음</a>
+									</div>
+									<div>
+										<a style="font-weight: bold">겉 표지</a>
+										<a th:if="${item.cover == 0}" th:class="font-weight-light">깨끗함</a>
+										<a th:if="${item.cover == 1}" th:class="font-weight-light">약간 더러움</a>
+										<a th:if="${item.cover == 2}" th:class="font-weight-light">많이 더러움</a>
+									</div>
+								</div>
+								<div class="col"><br>
+									<p style="font-weight: bolder; color: #1b1e21;" th:text="${item.detail}"></p>
+								</div>
+								<div class="col-3">
+									<br>
+									<div class="row justify-content-center">
+										<a class="btn btn-sm btn-outline-warning " th:href="${item.kakaoTalk_url}" style="font-size: 14px;">
+											판매자에게<br>
+											연락하기
+										</a>
+									</div>
+									<br>
+									<div class="row justify-content-center ">
+										<a class="btn btn-sm btn-outline-danger " style="font-size: 14px;">
+											찜하기
+										</a>
+									</div>
+								</div>
+
+                    		</div>
+                		</div>
+    				</div>
+
+				</div>
+				<!-- 검색 리스트 끝 -->
+
+
+				<!-- 페이징 -->
+				<div class="pagination justify-content-center py-4">
+					<nav aria-label="Page navigation example">
+						<ul class="pagination">
+							<li class="page-item">
+								<a class="page-link" href="#" aria-label="Previous">
+									<span aria-hidden="true">&laquo;</span>
+									<span class="sr-only">Previous</span>
+								</a>
+							</li>
+							<li class="page-item"><a class="page-link" href="#">1</a></li>
+							<li class="page-item active"><a class="page-link" href="#">2</a></li>
+							<li class="page-item"><a class="page-link" href="#">3</a></li>
+							<li class="page-item">
+								<a class="page-link" href="#" aria-label="Next">
+									<span aria-hidden="true">&raquo;</span>
+									<span class="sr-only">Next</span>
+								</a>
+							</li>
+						</ul>
+					</nav>
+				</div>
+
+			</div>
+		</div>
+	</div>
+</section>
+
+<!--============================
+=            Footer            =
+=============================-->
+
+<!-- Footer Bottom -->
+<footer class="footer-bottom">
+  <!-- Container Start -->
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-6 col-12">
+        <!-- Copyright -->
+        <div class="copyright">
+          <p>Copyright © <script>
+              var CurrentYear = new Date().getFullYear()
+              document.write(CurrentYear)
+            </script>. All Rights Reserved, theme by <a class="text-primary" href="https://themefisher.com" target="_blank">themefisher.com</a></p>
+        </div>
+      </div>
+      <div class="col-sm-6 col-12">
+        <!-- Social Icons -->
+        <ul class="social-media-icons text-right">
+          <li><a class="fa fa-facebook" href="https://www.facebook.com/themefisher" target="_blank"></a></li>
+          <li><a class="fa fa-twitter" href="https://www.twitter.com/themefisher" target="_blank"></a></li>
+          <li><a class="fa fa-pinterest-p" href="https://www.pinterest.com/themefisher" target="_blank"></a></li>
+          <li><a class="fa fa-vimeo" href=""></a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <!-- Container End -->
+  <!-- To Top -->
+  <div class="top-to">
+    <a id="top" class="" href="#"><i class="fa fa-angle-up"></i></a>
+  </div>
+</footer>
+
+<!-- JAVASCRIPTS -->
+<script src="plugins/jQuery/jquery.min.js"></script>
+<script src="plugins/bootstrap/js/popper.min.js"></script>
+<script src="plugins/bootstrap/js/bootstrap.min.js"></script>
+<script src="plugins/bootstrap/js/bootstrap-slider.js"></script>
+  <!-- tether js -->
+<script src="plugins/tether/js/tether.min.js"></script>
+<script src="plugins/raty/jquery.raty-fa.js"></script>
+<script src="plugins/slick-carousel/slick/slick.min.js"></script>
+<script src="plugins/jquery-nice-select/js/jquery.nice-select.min.js"></script>
+<script src="plugins/fancybox/jquery.fancybox.pack.js"></script>
+<script src="plugins/smoothscroll/SmoothScroll.min.js"></script>
+<!-- google map -->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCcABaamniA6OL5YvYSpB3pFMNrXwXnLwU&libraries=places"></script>
+<script src="plugins/google-map/gmap.js"></script>
+<script src="js/script.js"></script>
+
+</body>
+
+</html>

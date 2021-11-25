@@ -1,5 +1,6 @@
 package calendar7.usedbookproject.FileUpload;
 
+import org.apache.commons.io.FilenameUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.UrlResource;
@@ -14,24 +15,28 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.stream.Stream;
-
 
 
 @Service
 public class FileSystemStorageService implements StorageService {
 
 	private final Path rootLocation;  // 파일 경로 객체 파일의 경로는 StorageProperties.java 에 있다.
+	private final DateFormat dateFormat;
 
 	@Autowired
 	public FileSystemStorageService(StorageProperties properties)
 	{	// 파일 경로 객체 생성
 		this.rootLocation = Paths.get(properties.getLocation());
+		this.dateFormat = new SimpleDateFormat("yyMMddHHmmssSSSS");  // 파일 이름
 	}
 
 	//파일 저장
 	@Override
-	public void store(MultipartFile file)
+	public String store(MultipartFile file)
 	{
 		try {
 			// 파일이 비어있으면(클라이언트의 post request 내용이 null) 예외
@@ -48,7 +53,8 @@ public class FileSystemStorageService implements StorageService {
 					.normalize().toAbsolutePath();
 
 
-			// 보안 체크.
+
+			// 보안 체크. 뭔지는 나도 잘 몰?루..
 			if (!destinationFile.getParent().equals(this.rootLocation.toAbsolutePath()))
 			{
 				throw new StorageException("Cannot store file outside current directory.");
@@ -58,7 +64,17 @@ public class FileSystemStorageService implements StorageService {
 			// 파일을 저장. 해당하는 이름의 파일이 이미 있으면 덮어쓴다.
 			try (InputStream inputStream = file.getInputStream())
 			{
+				// 파일 이름을 시간포멧으로 바꾼다.
+				String filename = dateFormat.format(new Date());
+
+				// 파일의 확장자를 가져온다.
+				String fileExtension = FilenameUtils.getExtension(destinationFile.getFileName().toString());
+
+				// 파일을 저장하고, 이름 변경(파일이름 + 확장자)
 				Files.copy(inputStream, destinationFile, StandardCopyOption.REPLACE_EXISTING);
+				Files.move(destinationFile, destinationFile.resolveSibling(filename + "." + fileExtension));
+
+				return filename + "." + fileExtension;
 			}
 		}
 		catch (IOException e) {throw new StorageException("Failed to store file.", e);}

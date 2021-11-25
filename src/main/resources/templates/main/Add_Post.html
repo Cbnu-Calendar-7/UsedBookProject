@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+
+  <!-- SITE TITTLE -->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Classimax</title>
+
+    <!-- FAVICON -->
+    <link href="img/favicon.png" rel="shortcut icon">
+    <!-- PLUGINS CSS STYLE -->
+     <!--<link href="plugins/jquery-ui/jquery-ui.min.css" rel="stylesheet">-->
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="plugins/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="plugins/bootstrap/css/bootstrap-slider.css">
+    <!-- Font Awesome -->
+    <link href="plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!-- Owl Carousel -->
+    <link href="plugins/slick-carousel/slick/slick.css" rel="stylesheet">
+    <link href="plugins/slick-carousel/slick/slick-theme.css" rel="stylesheet">
+    <!-- Fancy Box -->
+    <link href="plugins/fancybox/jquery.fancybox.pack.css" rel="stylesheet">
+    <link href="plugins/jquery-nice-select/css/nice-select.css" rel="stylesheet">
+    <!-- CUSTOM CSS -->
+    <link href="css/style.css" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="https://unpkg.com/aksfileupload@1.0.0/dist/aksFileUpload.min.css">
+    <style>
+        #aks-file-upload {
+            width: 310px;
+            display: block;
+            margin: 0 auto;
+        }
+        #uploadfile{
+            width: 80%;
+            margin: 0 auto;
+            color: #002c7b;
+            line-height:1.5;
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+        }
+        .github{
+            position: fixed;
+            margin: 0 auto;
+            left: -46px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 125px;
+            height: 40px;
+            background: linear-gradient(#041d48, #01112d);
+            text-decoration: none;
+            color: white;
+            border-radius: 10px 10px 0 0;
+            font-weight: 600;
+            cursor: pointer;
+            transform: rotate(90deg);
+            top: 30%;
+        }
+        .github svg{
+            margin-right:10px;
+        }
+    </style>
+
+</head>
+
+<body class="body-wrapper">
+
+<!--내비 바-->
+<section>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<nav class="navbar navbar-expand-lg navbar-light navigation">
+					<a class="navbar-brand" href="../themes/index.html">
+						<img src="images/logo.png" alt="">
+					</a>
+					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+					 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+						<span class="navbar-toggler-icon"></span>
+					</button>
+					<div class="collapse navbar-collapse" id="navbarSupportedContent">
+						<ul class="navbar-nav ml-auto main-nav ">
+							<li class="nav-item active">
+								<a class="nav-link" href="../themes/index.html">Home</a>
+							</li>
+							<li class="nav-item dropdown dropdown-slide">
+								<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="">Dashboard<span><i class="fa fa-angle-down"></i></span>
+								</a>
+
+								<!-- Dropdown list -->
+								<div class="dropdown-menu">
+									<a class="dropdown-item" href="../themes/dashboard.html">Dashboard</a>
+									<a class="dropdown-item" href="../themes/dashboard-my-ads.html">Dashboard My Ads</a>
+									<a class="dropdown-item" href="../themes/dashboard-favourite-ads.html">Dashboard Favourite Ads</a>
+									<a class="dropdown-item" href="../themes/dashboard-archived-ads.html">Dashboard Archived Ads</a>
+									<a class="dropdown-item" href="../themes/dashboard-pending-ads.html">Dashboard Pending Ads</a>
+								</div>
+							</li>
+							<li class="nav-item dropdown dropdown-slide">
+								<a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+									Pages <span><i class="fa fa-angle-down"></i></span>
+								</a>
+								<!-- Dropdown list -->
+								<div class="dropdown-menu">
+									<a class="dropdown-item" href="../themes/about-us.html">About Us</a>
+									<a class="dropdown-item" href="../themes/contact-us.html">Contact Us</a>
+									<a class="dropdown-item" href="../themes/user-profile.html">User Profile</a>
+									<a class="dropdown-item" href="../themes/404.html">404 Page</a>
+									<a class="dropdown-item" href="../themes/package.html">Package</a>
+									<a class="dropdown-item" href="../themes/single.html">Single Page</a>
+									<a class="dropdown-item" href="../themes/store.html">Store Single</a>
+									<a class="dropdown-item" href="../themes/single-blog.html">Single Post</a>
+									<a class="dropdown-item" href="../themes/blog.html">Blog</a>
+
+								</div>
+							</li>
+							<li class="nav-item dropdown dropdown-slide">
+								<a class="nav-link dropdown-toggle" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+									Listing <span><i class="fa fa-angle-down"></i></span>
+								</a>
+								<!-- Dropdown list -->
+								<div class="dropdown-menu">
+									<a class="dropdown-item" href="../themes/category.html">Ad-Gird View</a>
+									<a class="dropdown-item" href="ad-listing-list.html">Ad-List View</a>
+								</div>
+							</li>
+						</ul>
+						<ul class="navbar-nav ml-auto mt-10">
+							<li class="nav-item">
+								<a class="nav-link login-button" href="../themes/login.html">Login</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link text-white add-button" href="ad-listing.html"><i class="fa fa-plus-circle"></i> Add Listing</a>
+							</li>
+						</ul>
+					</div>
+				</nav>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="ad-post bg-gray py-5">
+    <div class="container">
+        <form class="needs-validation" action="/add" method="post"  enctype="multipart/form-data" id="postform" >
+            <!-- Post Your ad start -->
+            <fieldset class="border border-gary p-4 mb-5">
+                    <div class="row">
+
+                        <div class="col-lg-12">
+                            <h3>서적 판매 등록</h3>
+                        </div>
+
+                        <div class="col-lg-6" >
+
+                            <h6 class="font-weight-bold pt-4 pb-1">책 제목:</h6>
+                            <input type="text" name="title" id="title" class=" border w-100 p-2 bg-white text-capitalize" placeholder="책 제목을 써주세요">
+
+                            <h6 class="font-weight-bold pt-4 pb-1">거래 방법:</h6>
+                            <div class="row px-3" id="deal_method" >
+
+                                <div class="col-lg-4 mr-lg-4 my-2 rounded bg-white" >
+                                    <input type="radio"  name="deal_method" value="Direct" id="Deal_Method_Direct" onclick="addInputText()">
+                                    <label for="Deal_Method_Direct" class="py-2">직거래</label>
+                                </div>
+
+                                <div class="col-lg-4 mr-lg-4 my-2 rounded bg-white ">
+                                    <input type="radio" name="deal_method" value="Parcel" id="Deal_Method_Parcel" onclick="DelInputText()">
+                                    <label for="Deal_Method_Parcel" class="py-2">택배</label>
+                                </div>
+
+                                <!--  addInputText() - 생성 ,  DelInputText() - 삭제 -->
+                                <!--<input type="text" id="deal_place" name="deal_place" class="border w-100 p-2 bg-white text-capitalize" placeholder="원하는 거래 장소를 써주세요">-->
+                            </div>
+
+                            <h6 class="font-weight-bold pt-4 pb-1">설명:</h6>
+                            <textarea name="detail" id="detail" class="border p-3 w-100" rows="7" placeholder="책에 대해 자세한 설명을 써주세요"></textarea>
+
+                            <h6 class="font-weight-bold pt-4 pb-1">오픈 카카오톡 채팅방 링크:</h6>
+                            <input type="text" id="kakaotalk_url" name="kakaotalk_url" class="border w-100 p-2 bg-white text-capitalize" placeholder="링크 주소를 써주세요">
+
+                        </div>
+
+                        <div class="col-lg-6">
+
+                            <h6 class="font-weight-bold pt-4 pb-1">지은이:</h6>
+                            <input type="text" id="author" name="author" class="border w-100 p-2 bg-white text-capitalize" placeholder="지은이를 써주세요">
+
+                            <h6 class="font-weight-bold pt-4 pb-1">출판사:</h6>
+                            <input type="text" id="publisher" name="publisher" class="border w-100 p-2 bg-white text-capitalize" placeholder="출판사를 써주세요">
+
+                            <h6 class="font-weight-bold pt-4 pb-1">출판일:</h6>
+                            <input type="date" id="publication_date" name="publication_date" class="border w-100 p-2 bg-white text-capitalize">
+
+
+                            <div class="price">
+                                <h6 class="font-weight-bold pt-4 pb-1">책 가격 (원):</h6>
+                                <div class="row px-3">
+
+                                    <div class="col-lg-3 mr-lg-4 rounded bg-white my-2 ">
+                                        <input type="text" id="origin_price" name="origin_price" class="border-0 py-2 w-100 price" placeholder="원래 가격" >
+                                    </div>
+
+                                    <div class="col-lg-3 mr-lg-4 rounded bg-white my-2">
+                                        <input type="text" id="sale_price" name="sale_price" class="border-0 py-2 w-100 price" placeholder="판매 가격" >
+                                    </div>
+
+                                    <div class="col-lg-4 mrx-4 rounded bg-white my-2">
+                                        <input type="checkbox" id="Negotiable" name="Negotiable" value="true">
+                                        <label for="Negotiable" class="py-2">흥정 가능 여부</label>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <!--이미지 업로드-->
+                            <div class="my-4 py-4 rounded justify-content-center" id="uploadfile">
+                                <div id="aks-file-upload"></div>
+                                <a class="github" target="_blank" href="https://github.com/Ahmetaksungur/aksfileupload">
+                                    <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor"
+                                         stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
+                                         fill="none" shape-rendering="geometricPrecision" style="">
+                                        <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"></path></svg>
+                                    GİTHUB</a>
+                            </div>
+
+                        </div>
+                    </div>
+
+            </fieldset>
+            <!-- Post Your ad end -->
+
+            <!-- 책 상태 -->
+            <fieldset class="border p-4 my-5 bg-gray">
+                <div class="row">
+
+                    <div class="col-lg-12">
+                        <h3>책 상태</h3>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <h6 class="font-weight-bold pt-4 pb-1">밑줄 흔적</h6>
+                        <div class="row px-3">
+
+                            <div class="col-lg-3 mr-lg-4 my-2 rounded bg-white">
+                                <input type="radio" name="Underline" value="None" id="Underline_None">
+                                <label for="Underline_None" class="py-2">없음</label>
+                            </div>
+
+                            <div class="col-lg-3 mr-lg-4 my-2 rounded bg-white ">
+                                <input type="radio" name="Underline" value="Pencil" id="Underline_Pencil">
+                                <label for="Underline_Pencil" class="py-2">연필/샤프</label>
+                            </div>
+
+                            <div class="col-lg-3 mr-lg-4 my-2 rounded bg-white ">
+                                <input type="radio" name="Underline" value="Highlighter" id="Underline_Highlighter">
+                                <label for="Underline_Highlighter" class="py-2">볼팬/형관펜</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <h6 class="font-weight-bold pt-4 pb-1">필기 흔적</h6>
+                        <div class="row px-3">
+
+                            <div class="col-lg-3 mr-lg-4 my-2 rounded bg-white">
+                                <input type="radio" name="Note" value="None" id="Note_None">
+                                <label for="Note_None" class="py-2">없음</label>
+                            </div>
+
+                            <div class="col-lg-3 mr-lg-4 my-2 rounded bg-white ">
+                                <input type="radio" name="Note" value="Pencil" id="Note_Pencil">
+                                <label for="Note_Pencil" class="py-2">연필/샤프</label>
+                            </div>
+
+                            <div class="col-lg-3 mr-lg-4 my-2 rounded bg-white ">
+                                <input type="radio" name="Note" value="Highlighter" id="Note_Highlighter">
+                                <label for="Note_Highlighter" class="py-2">볼팬/형관펜</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <h6 class="font-weight-bold pt-4 pb-1">페이지 변색/훼손</h6>
+                        <div class="row px-3">
+
+                            <div class="col-lg-2 mr-lg-4 my-2 rounded bg-white">
+                                <input type="radio" name="Damage" value="false" id="Damage_False">
+                                <label for="Damage_False" class="py-2">없음</label>
+                            </div>
+
+                            <div class="col-lg-2 mr-lg-4 my-2 rounded bg-white ">
+                                <input type="radio" name="Damage" value="true" id="Damage_True">
+                                <label for="Damage_True" class="py-2">있음</label>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <h6 class="font-weight-bold pt-4 pb-1">책 겉표지</h6>
+                        <div class="row px-3">
+
+                            <div class="col-lg-3 mr-lg-4 my-2 rounded bg-white">
+                                <input type="radio" name="Cover" value="clean" id="Cover_Clean">
+                                <label for="Damage_False" class="py-2">깨끗함</label>
+                            </div>
+
+                            <div class="col-lg-3 mr-lg-4 my-2 rounded bg-white ">
+                                <input type="radio" name="Cover" value="little_dirty" id="Cover_Little_Dirty">
+                                <label for="Damage_True" class="py-2">더러움</label>
+                            </div>
+
+                            <div class="col-lg-3 mr-lg-4 my-2 rounded bg-white ">
+                                <input type="radio" name="Cover" value="very_dirty" id="Cover_Very_Dirty">
+                                <label for="Damage_True" class="py-2">더러움</label>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </fieldset>
+            <!-- seller-information end-->
+
+            <button type="submit" class="btn btn-primary d-block mt-2">등록하기</button>
+
+        </form>
+    </div>
+</section>
+<!--============================
+=            Footer            =
+=============================-->
+
+<!-- Footer Bottom -->
+<footer class="footer-bottom">
+  <!-- Container Start -->
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-6 col-12">
+        <!-- Copyright -->
+        <div class="copyright">
+          <p>Copyright © <script>
+              var CurrentYear = new Date().getFullYear()
+              document.write(CurrentYear)
+            </script>. All Rights Reserved, theme by <a class="text-primary" href="https://themefisher.com" target="_blank">themefisher.com</a></p>
+        </div>
+      </div>
+      <div class="col-sm-6 col-12">
+        <!-- Social Icons -->
+        <ul class="social-media-icons text-right">
+          <li><a class="fa fa-facebook" href="https://www.facebook.com/themefisher" target="_blank"></a></li>
+          <li><a class="fa fa-twitter" href="https://www.twitter.com/themefisher" target="_blank"></a></li>
+          <li><a class="fa fa-pinterest-p" href="https://www.pinterest.com/themefisher" target="_blank"></a></li>
+          <li><a class="fa fa-vimeo" href=""></a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <!-- Container End -->
+  <!-- To Top -->
+  <div class="top-to">
+    <a id="top" class="" href="#"><i class="fa fa-angle-up"></i></a>
+  </div>
+</footer>
+
+<!-- JAVASCRIPTS -->
+<script src="plugins/jQuery/jquery.min.js"></script>
+<script src="plugins/bootstrap/js/popper.min.js"></script>
+<script src="plugins/bootstrap/js/bootstrap.min.js"></script>
+<script src="plugins/bootstrap/js/bootstrap-slider.js"></script>
+<!-- tether js -->
+<script src="plugins/tether/js/tether.min.js"></script>
+<script src="plugins/raty/jquery.raty-fa.js"></script>
+<script src="plugins/slick-carousel/slick/slick.min.js"></script>
+<script src="plugins/jquery-nice-select/js/jquery.nice-select.min.js"></script>
+<script src="plugins/fancybox/jquery.fancybox.pack.js"></script>
+<script src="plugins/smoothscroll/SmoothScroll.min.js"></script>
+<!-- google map -->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCcABaamniA6OL5YvYSpB3pFMNrXwXnLwU&libraries=places"></script>
+<script src="plugins/google-map/gmap.js"></script>
+<script src="js/script.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/aksfileupload@1.0.0/dist/aksFileUpload.min.js"></script>
+
+<script>
+
+    var count = 0;
+
+    function addInputText()
+    {
+        if(count === 0)
+        {
+            //  <input type="text" id="deal_place" name="deal_place" class="border w-100 p-2 bg-white text-capitalize" placeholder="원하는 거래 장소를 써주세요">
+
+            var addDiv = document.getElementById('deal_method');
+            var newText = document.createElement('input');
+
+            newText.type='text';
+            newText.id='deal_place';
+            newText.name='deal_place';
+            newText.placeholder='거래 장소';
+            newText.classList.add('border');
+            newText.classList.add('w-100');
+            newText.classList.add('p-2');
+            newText.classList.add('bg-white');
+            newText.classList.add('text-capitalize');
+
+            count++;
+            addDiv.appendChild(newText);
+        }
+    }
+
+    function DelInputText()
+    {
+        if (count === 1) {
+            var DelDiv = document.getElementById('deal_method');
+            var DelText = document.getElementById('deal_place');
+
+            count--;
+            DelDiv.removeChild(DelText);
+        }
+    }
+
+    $(function () {
+        $("#aks-file-upload").aksFileUpload({
+            fileUpload: "#uploadfile",
+            dragDrop: true,
+            maxSize: "50 MB",
+            multiple: false,
+            fileType: ['png', 'jpeg', 'jpg'],
+            fileTypeError: " <'png' 'jpeg' 'jpg' 확장자 파일만 업로드 가능합니다.>",
+            maxSizeError: "허용 용량 초과",
+            label: "책 사진 파일 업로드",
+        });
+    });
+
+    function ValidCheck()
+    {
+
+        var title = $('#title');
+        var dealMethod = $('#deal_method');
+        var detail = $('#detail');
+        var author = $('#author');
+        var kakaotalkUrl = $('#kakaotalk_url');
+        var publicationDate = $('#publication_date');
+        var originPrice = $('#origin_price');
+        var salePrice = $('#sale_price');
+        var publisher = $('#publisher');
+
+        var damageFalse = $('#Damage_False');
+        var damageTrue = $('#Damage_True');
+
+        var underlineHighlighter = $('#Underline_Highlighter');
+        var underlinePencil = $('#Underline_Pencil');
+        var underlineNone = $('#Underline_None');
+
+        var noteHighlighter = $('#Note_Highlighter');
+        var notePencil = $('#Note_Pencil');
+        var noteNone = $('#Note_None');
+
+        var coverClean = $('#Cover_Clean');
+        var coverDirty = $('#Cover_Dirty');
+
+        var negotiable = $('#Negotiable');
+
+        var dealPlace = $('#deal_place');
+
+
+
+
+
+    }
+
+
+
+</script>
+
+</body>
+
+</html>
