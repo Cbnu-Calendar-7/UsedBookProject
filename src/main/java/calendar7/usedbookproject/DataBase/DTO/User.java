@@ -12,7 +12,7 @@ import javax.persistence.Id;
 public class User
 {
     @Id
-    private String UserID;  // 아이디
+    private String userID;  // 아이디
 
     private String password; // 패스워드
     private String email; // 이메일
@@ -24,12 +24,10 @@ public class User
     private String wishlist; // 찜리스트
     private String chatlist; // 채팅리스트
 
-    // JPA를 위한 기본생성자
-    protected User() {}
 
     public User(String UserID, String password, String email, String phonenumber, String nickname, String username)
     {
-        this.UserID = UserID;
+        this.userID = UserID;
         this.password = password;
         this.email = email;
         this.phonenumber = phonenumber;
@@ -40,10 +38,12 @@ public class User
         this.chatlist = "";
     }
 
+    public User() {}
+
     @Override
     public String toString() {
         return "User{" +
-                "UserID='" + UserID + '\'' +
+                "UserID='" + userID + '\'' +
                 ", password='" + password + '\'' +
                 ", email='" + email + '\'' +
                 ", username='" + username + '\'' +

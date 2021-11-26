@@ -1,14 +1,20 @@
-package calendar7.usedbookproject;
+package calendar7.usedbookproject.Controller;
 
 import calendar7.usedbookproject.DataBase.DAO.SalePostRepository;
 import calendar7.usedbookproject.DataBase.DTO.SalePost;
-import calendar7.usedbookproject.FileUpload.StorageService;
+import calendar7.usedbookproject.service.FileUpload.StorageService;
+import calendar7.usedbookproject.service.Search.SearchService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.util.Date;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 
@@ -17,13 +23,34 @@ public class PostingController
 {
 
     private final StorageService storageService;
-    private final SalePostRepository salePostRepository;
+    private final SearchService searchService;
+    private final SalePostRepository postRepo;
 
     @Autowired
-    public PostingController(StorageService storageService, SalePostRepository salePostRepository)
+    public PostingController(StorageService storageService, SalePostRepository salePostRepository, SearchService searchService)
     {
         this.storageService = storageService;
-        this.salePostRepository = salePostRepository;
+        this.postRepo = salePostRepository;
+        this.searchService = searchService;
+    }
+
+    @GetMapping(path = "/add")
+    public String addGet() { return "main/Add_Post"; }
+
+    @GetMapping(path = "/list")
+    public String list(Model model, @RequestParam(value = "keyword") @Nullable Optional<String> keyword)
+    {
+        if(keyword.isPresent())
+        {
+            // 검색결과, 검색 키워드, 검색 날짜를 넘긴다.
+            List<SalePost> list = searchService.SearchByTitle(keyword.get());
+            model.addAttribute("items", list);
+            model.addAttribute("keyword", keyword);
+            model.addAttribute("date", new Date());
+            return "main/List_View";
+        }
+        return "main/Search_Page";
+
     }
 
     @PostMapping(path = "/add")
@@ -38,20 +65,20 @@ public class PostingController
 
         newpost.setTitle(title);
         newpost.setDetail(Detail);
-        newpost.setPublication_date(publication_date);
+        newpost.setPublicationDate(publication_date);
         newpost.setAuthor(author);
-        newpost.setOrigin_Price(Integer.parseInt(Origin_price));
-        newpost.setSale_Price(Integer.parseInt(Sale_price));
+        newpost.setOriginPrice(Integer.parseInt(Origin_price));
+        newpost.setSalePrice(Integer.parseInt(Sale_price));
         newpost.setPublisher(Publisher);
-        newpost.setKakaoTalk_url(Kakao_url);
+        newpost.setKakaoTalkUrl(Kakao_url);
 
 
         if(Objects.equals(Deal_Method, "Direct"))
         {
-            newpost.setDeal_Method(0);
-            newpost.setDeal_place(deal_place.get());
+            newpost.setDealMethod(0);
+            newpost.setDealPlace(deal_place.get());
         }
-        else if(Objects.equals(Deal_Method, "Parcel")) newpost.setDeal_Method(1);
+        else if(Objects.equals(Deal_Method, "Parcel")) newpost.setDealMethod(1);
 
         newpost.setNegotiable(Negotiable.isPresent());
 
@@ -71,9 +98,9 @@ public class PostingController
         else if(Objects.equals(Cover, "very_dirty")) newpost.setCover(2);
 
         String imagename = storageService.store(file);
-        newpost.setImage_link("image?fileName=" + imagename);
+        newpost.setImageLink("image?fileName=" + imagename);
 
-        salePostRepository.save(newpost);
+        postRepo.save(newpost);
 
         return "redirect:/list";
     }

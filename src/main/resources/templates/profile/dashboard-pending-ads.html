@@ -43,7 +43,7 @@
 		<div class="row">
 			<div class="col-md-12">
 				<nav class="navbar navbar-expand-lg navbar-light navigation">
-					<a class="navbar-brand" href="index.html">
+					<a class="navbar-brand" href="../themes/index.html">
 						<img src="../../static/images/logo.png" alt="">
 					</a>
 					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -53,7 +53,7 @@
 					<div class="collapse navbar-collapse" id="navbarSupportedContent">
 						<ul class="navbar-nav ml-auto main-nav ">
 							<li class="nav-item active">
-								<a class="nav-link" href="index.html">Home</a>
+								<a class="nav-link" href="../themes/index.html">Home</a>
 							</li>
 							<li class="nav-item dropdown dropdown-slide">
 								<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="">Dashboard<span><i class="fa fa-angle-down"></i></span>
@@ -61,10 +61,10 @@
 
 								<!-- Dropdown list -->
 								<div class="dropdown-menu">
-									<a class="dropdown-item" href="dashboard.html">Dashboard</a>
-									<a class="dropdown-item" href="dashboard-my-ads.html">Dashboard My Ads</a>
+									<a class="dropdown-item" href="../themes/dashboard.html">Dashboard</a>
+									<a class="dropdown-item" href="mylist.html">Dashboard My Ads</a>
 									<a class="dropdown-item" href="dashboard-favourite-ads.html">Dashboard Favourite Ads</a>
-									<a class="dropdown-item" href="dashboard-archived-ads.html">Dashboard Archived Ads</a>
+									<a class="dropdown-item" href="archive.html">Dashboard Archived Ads</a>
 									<a class="dropdown-item" href="dashboard-pending-ads.html">Dashboard Pending Ads</a>
 								</div>
 							</li>
@@ -74,15 +74,15 @@
 								</a>
 								<!-- Dropdown list -->
 								<div class="dropdown-menu">
-									<a class="dropdown-item" href="about-us.html">About Us</a>
-									<a class="dropdown-item" href="contact-us.html">Contact Us</a>
-									<a class="dropdown-item" href="user-profile.html">User Profile</a>
-									<a class="dropdown-item" href="404.html">404 Page</a>
-									<a class="dropdown-item" href="package.html">Package</a>
-									<a class="dropdown-item" href="single.html">Single Page</a>
-									<a class="dropdown-item" href="store.html">Store Single</a>
-									<a class="dropdown-item" href="single-blog.html">Single Post</a>
-									<a class="dropdown-item" href="blog.html">Blog</a>
+									<a class="dropdown-item" href="../themes/about-us.html">About Us</a>
+									<a class="dropdown-item" href="../themes/contact-us.html">Contact Us</a>
+									<a class="dropdown-item" href="../themes/user-profile.html">User Profile</a>
+									<a class="dropdown-item" href="../themes/404.html">404 Page</a>
+									<a class="dropdown-item" href="../themes/package.html">Package</a>
+									<a class="dropdown-item" href="../themes/single.html">Single Page</a>
+									<a class="dropdown-item" href="../themes/store.html">Store Single</a>
+									<a class="dropdown-item" href="../themes/single-blog.html">Single Post</a>
+									<a class="dropdown-item" href="../themes/blog.html">Blog</a>
 
 								</div>
 							</li>
@@ -92,14 +92,14 @@
 								</a>
 								<!-- Dropdown list -->
 								<div class="dropdown-menu">
-									<a class="dropdown-item" href="category.html">Ad-Gird View</a>
+									<a class="dropdown-item" href="../themes/category.html">Ad-Gird View</a>
 									<a class="dropdown-item" href="ad-listing-list.html">Ad-List View</a>
 								</div>
 							</li>
 						</ul>
 						<ul class="navbar-nav ml-auto mt-10">
 							<li class="nav-item">
-								<a class="nav-link login-button" href="login.html">Login</a>
+								<a class="nav-link login-button" href="../themes/login.html">Login</a>
 							</li>
 							<li class="nav-item">
 								<a class="nav-link text-white add-button" href="ad-listing.html"><i class="fa fa-plus-circle"></i> Add Listing</a>
@@ -130,19 +130,19 @@
 						<!-- User Name -->
 						<h5 class="text-center">Samanta Doe</h5>
 						<p>Joined February 06, 2017</p>
-						<a href="user-profile.html" class="btn btn-main-sm">Edit Profile</a>
+						<a class="btn btn-main-sm" href="../themes/user-profile.html">Edit Profile</a>
 					</div>
 					<!-- Dashboard Links -->
 					<div class="widget user-dashboard-menu">
 						<ul>
-							<li><a href="dashboard-my-ads.html"><i class="fa fa-user"></i> My Ads</a></li>
-							<li class="active">
+							<li><a href="mylist.html"><i class="fa fa-user"></i> My Ads</a></li>
+							<li>
 								<a href="dashboard-favourite-ads.html"><i class="fa fa-bookmark-o"></i> Favourite Ads <span>5</span></a>
 							</li>
 							<li>
-								<a href="dashboard-archived-ads.html"><i class="fa fa-file-archive-o"></i>Archeved Ads <span>12</span></a>
+								<a href="archive.html"><i class="fa fa-file-archive-o"></i>Archeved Ads <span>12</span></a>
 							</li>
-							<li>
+							<li class="active">
 								<a href="dashboard-pending-ads.html"><i class="fa fa-bolt"></i> Pending Approval<span>23</span></a>
 							</li>
 							<li>
@@ -187,7 +187,7 @@
 			<div class="col-md-10 offset-md-1 col-lg-8 offset-lg-0">
 				<!-- Recently Favorited -->
 				<div class="widget dashboard-container my-adslist">
-					<h3 class="widget-header">Favourite Ads</h3>
+					<h3 class="widget-header">My Ads</h3>
 					<table class="table table-responsive product-dashboard-table">
 						<thead>
 							<tr>
@@ -214,8 +214,8 @@
 									<div class="">
 										<ul class="list-inline justify-content-center">
 											<li class="list-inline-item">
-												<a data-toggle="tooltip" data-placement="top" title="View" class="view" href="category.html">
-													<i class="fa fa-eye"></i>
+												<a data-toggle="tooltip" data-placement="top" title="Edit" class="edit" href="">
+													<i class="fa fa-pencil"></i>
 												</a>
 											</li>
 											<li class="list-inline-item">
@@ -243,8 +243,8 @@
 									<div class="">
 										<ul class="list-inline justify-content-center">
 											<li class="list-inline-item">
-												<a data-toggle="tooltip" data-placement="top" title="View" class="view" href="category.html">
-													<i class="fa fa-eye"></i>
+												<a data-toggle="tooltip" data-placement="top" title="Edit" class="edit" href="">
+													<i class="fa fa-pencil"></i>
 												</a>
 											</li>
 											<li class="list-inline-item">
@@ -272,8 +272,8 @@
 									<div class="">
 										<ul class="list-inline justify-content-center">
 											<li class="list-inline-item">
-												<a data-toggle="tooltip" data-placement="top" title="View" class="view" href="category.html">
-													<i class="fa fa-eye"></i>
+												<a data-toggle="tooltip" data-placement="top" title="Edit" class="edit" href="">
+													<i class="fa fa-pencil"></i>
 												</a>
 											</li>
 											<li class="list-inline-item">
@@ -301,8 +301,8 @@
 									<div class="">
 										<ul class="list-inline justify-content-center">
 											<li class="list-inline-item">
-												<a data-toggle="tooltip" data-placement="top" title="View" class="view" href="category.html">
-													<i class="fa fa-eye"></i>
+												<a data-toggle="tooltip" data-placement="top" title="Edit" class="edit" href="">
+													<i class="fa fa-pencil"></i>
 												</a>
 											</li>
 											<li class="list-inline-item">
@@ -330,8 +330,8 @@
 									<div class="">
 										<ul class="list-inline justify-content-center">
 											<li class="list-inline-item">
-												<a data-toggle="tooltip" data-placement="top" title="View" class="view" href="category.html">
-													<i class="fa fa-eye"></i>
+												<a data-toggle="tooltip" data-placement="top" title="Edit" class="edit" href="">
+													<i class="fa fa-pencil"></i>
 												</a>
 											</li>
 											<li class="list-inline-item">
@@ -347,7 +347,7 @@
 					</table>
 
 				</div>
-
+				
 				<!-- pagination -->
 				<div class="pagination justify-content-center">
 					<nav aria-label="Page navigation example">
@@ -406,7 +406,7 @@
             <li><a href="#">How It works</a></li>
             <li><a href="#">Deals & Coupons</a></li>
             <li><a href="#">Articls & Tips</a></li>
-            <li><a href="terms-condition.html">Terms & Conditions</a></li>
+            <li><a href="../themes/terms-condition.html">Terms & Conditions</a></li>
           </ul>
         </div>
       </div>
@@ -415,12 +415,12 @@
         <div class="block">
           <h4>Admin Pages</h4>
           <ul>
-            <li><a href="category.html">Category</a></li>
-            <li><a href="single.html">Single Page</a></li>
-            <li><a href="store.html">Store Single</a></li>
-            <li><a href="single-blog.html">Single Post</a>
+            <li><a href="../themes/category.html">Category</a></li>
+            <li><a href="../themes/single.html">Single Page</a></li>
+            <li><a href="../themes/store.html">Store Single</a></li>
+            <li><a href="../themes/single-blog.html">Single Post</a>
             </li>
-            <li><a href="blog.html">Blog</a></li>
+            <li><a href="../themes/blog.html">Blog</a></li>
 
 
 

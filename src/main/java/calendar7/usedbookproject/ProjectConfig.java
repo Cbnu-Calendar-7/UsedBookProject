@@ -1,6 +1,6 @@
 package calendar7.usedbookproject;
 
-import calendar7.usedbookproject.FileUpload.StorageService;
+import calendar7.usedbookproject.service.FileUpload.StorageService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

@@ -36,67 +36,14 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
-				<nav class="navbar navbar-expand-lg navbar-light navigation">
-					<a class="navbar-brand" href="../themes/index.html">
-						<img src="images/logo.png" alt="">
-					</a>
-					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-					 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-						<span class="navbar-toggler-icon"></span>
-					</button>
+				<nav class="navbar navbar-expand-sm navbar-light">
+					<a class="navbar-brand" href="../themes/index.html" style="font-size: 25px;">Calendar</a>
 					<div class="collapse navbar-collapse" id="navbarSupportedContent">
-						<ul class="navbar-nav ml-auto main-nav ">
-							<li class="nav-item active">
-								<a class="nav-link" href="../themes/index.html">Home</a>
-							</li>
-							<li class="nav-item dropdown dropdown-slide">
-								<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="">Dashboard<span><i class="fa fa-angle-down"></i></span>
-								</a>
-
-								<!-- Dropdown list -->
-								<div class="dropdown-menu">
-									<a class="dropdown-item" href="../themes/dashboard.html">Dashboard</a>
-									<a class="dropdown-item" href="../themes/dashboard-my-ads.html">Dashboard My Ads</a>
-									<a class="dropdown-item" href="../themes/dashboard-favourite-ads.html">Dashboard Favourite Ads</a>
-									<a class="dropdown-item" href="../themes/dashboard-archived-ads.html">Dashboard Archived Ads</a>
-									<a class="dropdown-item" href="../themes/dashboard-pending-ads.html">Dashboard Pending Ads</a>
-								</div>
-							</li>
-							<li class="nav-item dropdown dropdown-slide">
-								<a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-									Pages <span><i class="fa fa-angle-down"></i></span>
-								</a>
-								<!-- Dropdown list -->
-								<div class="dropdown-menu">
-									<a class="dropdown-item" href="../themes/about-us.html">About Us</a>
-									<a class="dropdown-item" href="../themes/contact-us.html">Contact Us</a>
-									<a class="dropdown-item" href="../themes/user-profile.html">User Profile</a>
-									<a class="dropdown-item" href="../themes/404.html">404 Page</a>
-									<a class="dropdown-item" href="../themes/package.html">Package</a>
-									<a class="dropdown-item" href="../themes/single.html">Single Page</a>
-									<a class="dropdown-item" href="../themes/store.html">Store Single</a>
-									<a class="dropdown-item" href="../themes/single-blog.html">Single Post</a>
-									<a class="dropdown-item" href="../themes/blog.html">Blog</a>
-
-								</div>
-							</li>
-							<li class="nav-item dropdown dropdown-slide">
-								<a class="nav-link dropdown-toggle" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-									Listing <span><i class="fa fa-angle-down"></i></span>
-								</a>
-								<!-- Dropdown list -->
-								<div class="dropdown-menu">
-									<a class="dropdown-item" href="../themes/category.html">Ad-Gird View</a>
-									<a class="dropdown-item" href="ad-listing-list.html">Ad-List View</a>
-								</div>
-							</li>
-						</ul>
 						<ul class="navbar-nav ml-auto mt-10">
 							<li class="nav-item">
-								<a class="nav-link login-button" href="../themes/login.html">Login</a>
-							</li>
-							<li class="nav-item">
-								<a class="nav-link text-white add-button" href="ad-listing.html"><i class="fa fa-plus-circle"></i> Add Listing</a>
+								<a class="nav-link text-white" href="ad-listing.html">
+									<img height="50px" src="images/user_icon.png" width="50px	">
+								</a>
 							</li>
 						</ul>
 					</div>
@@ -113,13 +60,13 @@
 			<div class="col-md-12">
 				<!-- Advance Search -->
 				<div class="advance-search">
-					<form method="get">
+					<form action="/list" method="get" name="searchform" onsubmit="return validform()">
 						<div class="form-row">
 							<div class="form-group col-md-10">
-								<input type="text" class="form-control my-2 my-lg-0" id="inputtext4" placeholder="검색어">
+								<input class="form-control my-2 my-lg-0" name="keyword" placeholder="검색어" type="text">
 							</div>
 							<div class="form-group col-md-2">
-								<button type="submit" class="btn btn-primary" style="background-color:transparent; color: white; border-color: white;">검색</button>
+								<button class="btn btn-primary" id="searchTextButton" style="background-color:transparent; color: white; border-color: white;" type="submit">검색</button>
 							</div>
 						</div>
 					</form>
@@ -137,8 +84,8 @@
 		<div class="row">
 			<div class="col-md-12">
 				<div class="search-result bg-gray">
-					<h2>"검색어"의 검색 결과</h2>
-					<p>약 1,234 개 2021/11/23</p>
+					<h2 th:text=" '&quot;' + ${keyword.get()} + '&quot;' + '의 검색 결과' "></h2>
+					<p th:text=" '약&nbsp;' + ${items.size()} + '&nbsp;개&nbsp;' + ${#dates.format(date, 'yyyy/MM/dd HH:mm')}" ></p>
 				</div>
 			</div>
 		</div>
@@ -180,7 +127,7 @@
 						<!--상품 이미지-->
                         <div class="col-lg-2 align-self-center">
                             <a href="../themes/single.html">
-                            <img th:src="${item.image_link}" class="img-fluid" style="width: 160px; height: 200px;" alt="책 이미지">
+                            <img alt="책 이미지" class="img-fluid" style="width: 160px; height: 200px;" th:src="${item.imageLink}">
                             </a>
                         </div>
 
@@ -207,13 +154,13 @@
 										<!-- 출판일 -->
 										<li class="list-inline-item">
 											<i class="bi bi-calendar2-day"></i>
-											<a th:text="${item.publication_date}"></a>
+											<a th:text="${item.publicationDate}"></a>
 										</li>
 										<br>
 										<li class="list-inline-item">
 											<i class="bi bi-caret-right"></i>
-											<a th:if="${item.deal_Method} == 0" th:text=" '직거래(' + ${item.deal_place.toString()} + ')' "></a>
-											<a th:unless="${item.deal_Method} == 0" th:text="택배"></a>
+											<a th:if="${item.dealMethod} == 0" th:text=" '직거래(' + ${item.dealPlace.toString()} + ')' "></a>
+											<a th:text="택배" th:unless="${item.dealMethod} == 0"></a>
 										</li>
 
 										<li class="list-inline-item">
@@ -224,8 +171,8 @@
 									</ul>
 
 									<div>
-										<a class="text-danger font-weight-bold" th:text=" '판매 가격:' + ${item.sale_Price} + '원' "></a><br>
-										<small class="text-muted" th:text=" '원래 가격:' + ${item.origin_Price} + '원' "></small>
+										<a class="text-danger font-weight-bold" th:text=" '판매 가격:' + ${item.salePrice} + '원' "></a><br>
+										<small class="text-muted" th:text=" '원래 가격:' + ${item.originPrice} + '원' "></small>
 									</div>
 								</div>
 								<div class="col-3" style="font-size: 14px;"><br>
@@ -260,7 +207,7 @@
 								<div class="col-3">
 									<br>
 									<div class="row justify-content-center">
-										<a class="btn btn-sm btn-outline-warning " th:href="${item.kakaoTalk_url}" style="font-size: 14px;">
+										<a class="btn btn-sm btn-outline-warning " style="font-size: 14px;" th:href="${item.kakaoTalkUrl}">
 											판매자에게<br>
 											연락하기
 										</a>
@@ -321,20 +268,15 @@
       <div class="col-sm-6 col-12">
         <!-- Copyright -->
         <div class="copyright">
-          <p>Copyright © <script>
+          <p>Team Calendar <script>
               var CurrentYear = new Date().getFullYear()
               document.write(CurrentYear)
-            </script>. All Rights Reserved, theme by <a class="text-primary" href="https://themefisher.com" target="_blank">themefisher.com</a></p>
+            </script> Theme by
+			  <a class="text-primary" href="https://themefisher.com" target="_blank">
+				  themefisher.com
+			  </a>
+		  </p>
         </div>
-      </div>
-      <div class="col-sm-6 col-12">
-        <!-- Social Icons -->
-        <ul class="social-media-icons text-right">
-          <li><a class="fa fa-facebook" href="https://www.facebook.com/themefisher" target="_blank"></a></li>
-          <li><a class="fa fa-twitter" href="https://www.twitter.com/themefisher" target="_blank"></a></li>
-          <li><a class="fa fa-pinterest-p" href="https://www.pinterest.com/themefisher" target="_blank"></a></li>
-          <li><a class="fa fa-vimeo" href=""></a></li>
-        </ul>
       </div>
     </div>
   </div>
@@ -361,6 +303,20 @@
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCcABaamniA6OL5YvYSpB3pFMNrXwXnLwU&libraries=places"></script>
 <script src="plugins/google-map/gmap.js"></script>
 <script src="js/script.js"></script>
+
+<script>
+	function validform()
+	{
+
+		var keyword = document.forms["searchform"]["keyword"].value;
+
+		if (keyword == null || keyword == "") {
+			alert("검색어를 입력해 주세요!");
+			return false;
+		}
+	}
+
+</script>
 
 </body>
 

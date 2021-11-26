@@ -1,4 +1,4 @@
-package calendar7.usedbookproject.FileUpload;
+package calendar7.usedbookproject.service.FileUpload;
 
 public class StorageFileNotFoundException extends StorageException {
 
