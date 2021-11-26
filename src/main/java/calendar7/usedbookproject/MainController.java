@@ -1,6 +1,7 @@
 package calendar7.usedbookproject;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -12,6 +13,12 @@ public class MainController
     // (기본페이지) 로그인 페이지로 이동
     @GetMapping(path = "/")
     public String Login () { return "login/signin"; }
+
+    @GetMapping("/login-error")
+    public String loginError(Model model){
+        model.addAttribute("loginError", true);
+        return "/";
+    }
 
     // 계정 생성 페이지로 이동
     @GetMapping(path = "/login/createAccount")

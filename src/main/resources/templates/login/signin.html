@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ko">
+<html lang="ko" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -83,23 +83,25 @@
         crossorigin="anonymous"></script>
 
 <main class="form-signin" id="content">
-  <form action="" method="get">
+  <form th:action="@{/loginProcess}" method="post">
 
     <img class="mb-4" src="" alt="이미지(임시 텍스트)" width="72" height="57">
 
     <div class="form-floating">
-      <input type="text" class="form-control" id="floatingInput" placeholder="ID">
-      <label for="floatingInput">아이디</label>
+      <input type="text" class="form-control" id="username" name="username" placeholder="ID">
+      <label for="username">아이디</label>
     </div>
 
     <div class="form-floating">
-      <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-      <label for="floatingPassword">패스워드</label>
+      <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+      <label for="password">패스워드</label>
     </div>
 
 
     <button class="w-100 btn btn-lg btn-primary" type="submit">로그인</button>
-
+    <div class="error-message" th:if="${loginError}">
+      <span> 아이디나 패스워드가 올바르지 않습니다. </span>
+    </div>
 
     <a class="link-dark" href="/login/createAccount"><br></br>회원가입</a><br><br>
     <a class="link-dark" href="/login/searchAccount">아이디/비밀번호 찾기</a>

@@ -24,6 +24,8 @@ public class User
     private String wishlist; // 찜리스트
     private String chatlist; // 채팅리스트
 
+    private String auth;
+
     // JPA를 위한 기본생성자
     protected User() {}
 
