@@ -1,4 +1,4 @@
-package calendar7.usedbookproject.service.Search;
+package calendar7.usedbookproject.Service.Search;
 
 import calendar7.usedbookproject.DataBase.DTO.SalePost;
 

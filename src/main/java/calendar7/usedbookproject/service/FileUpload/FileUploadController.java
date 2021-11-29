@@ -1,4 +1,4 @@
-package calendar7.usedbookproject.service.FileUpload;
+package calendar7.usedbookproject.Service.FileUpload;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;

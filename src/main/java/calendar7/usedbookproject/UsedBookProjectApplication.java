@@ -1,7 +1,7 @@
 package calendar7.usedbookproject;
 
 
-import calendar7.usedbookproject.service.FileUpload.StorageProperties;
+import calendar7.usedbookproject.Service.FileUpload.StorageProperties;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;

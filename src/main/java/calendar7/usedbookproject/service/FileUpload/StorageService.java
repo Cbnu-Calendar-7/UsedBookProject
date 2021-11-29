@@ -1,4 +1,4 @@
-package calendar7.usedbookproject.service.FileUpload;
+package calendar7.usedbookproject.Service.FileUpload;
 
 import org.springframework.core.io.Resource;
 import org.springframework.web.multipart.MultipartFile;

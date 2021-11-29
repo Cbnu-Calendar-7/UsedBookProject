@@ -2,8 +2,8 @@ package calendar7.usedbookproject.Controller;
 
 import calendar7.usedbookproject.DataBase.DAO.SalePostRepository;
 import calendar7.usedbookproject.DataBase.DTO.SalePost;
-import calendar7.usedbookproject.service.FileUpload.StorageService;
-import calendar7.usedbookproject.service.Search.SearchService;
+import calendar7.usedbookproject.Service.FileUpload.StorageService;
+import calendar7.usedbookproject.Service.Search.SearchService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Controller;
@@ -19,7 +19,7 @@ import java.util.Objects;
 import java.util.Optional;
 
 @Controller
-public class PostingController
+public class    PostingController
 {
 
     private final StorageService storageService;
@@ -35,7 +35,14 @@ public class PostingController
     }
 
     @GetMapping(path = "/add")
-    public String addGet() { return "main/Add_Post"; }
+    public String SalePostAdd() { return "main/Add_Post"; }
+
+    @GetMapping(path = "/delete")
+    public String SalePostDelete(@RequestParam("postid") Long postid, @RequestParam("redirecturl") String redirecturl)
+    {
+        postRepo.deleteById(postid);
+        return "redirect:/" + redirecturl;
+    }
 
     @GetMapping(path = "/list")
     public String list(Model model, @RequestParam(value = "keyword") @Nullable Optional<String> keyword)

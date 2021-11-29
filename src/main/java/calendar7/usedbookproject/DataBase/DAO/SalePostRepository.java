@@ -11,5 +11,4 @@ import java.util.List;
 public interface SalePostRepository extends JpaRepository<SalePost, Long>
 {
     List<SalePost> findByTitleContaining(String title);
-
 }

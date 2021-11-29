@@ -20,6 +20,44 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <!------ Include the above in your HEAD tag ---------->
 
+    <link type="text/css" rel="stylesheet" href="https://unpkg.com/aksfileupload@1.0.0/dist/aksFileUpload.min.css">
+    <style>
+        #aks-file-upload {
+            width: 310px;
+            display: block;
+            margin: 0 auto;
+        }
+        #uploadfile{
+            width: 80%;
+            margin: 0 auto;
+            color: #002c7b;
+            line-height:1.5;
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+        }
+        .github{
+            position: fixed;
+            margin: 0 auto;
+            left: -46px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 125px;
+            height: 40px;
+            background: linear-gradient(#041d48, #01112d);
+            text-decoration: none;
+            color: white;
+            border-radius: 10px 10px 0 0;
+            font-weight: 600;
+            cursor: pointer;
+            transform: rotate(90deg);
+            top: 30%;
+        }
+        .github svg{
+            margin-right:10px;
+        }
+    </style>
+
     <style>
         @import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);
 
@@ -155,7 +193,6 @@
                                 <input type="file" class="col-md-4 form-control-file" formenctype="multipart/form-data" id="imagefile">
                             </div>
 
-
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">등록</button>
                             </div>
@@ -226,11 +263,24 @@
             return false;
         }
 
+        $(function () {
+            $("#aks-file-upload").aksFileUpload({
+                fileUpload: "#uploadfile",
+                dragDrop: true,
+                maxSize: "50 MB",
+                multiple: false,
+                fileType: ['png', 'jpeg', 'jpg'],
+                fileTypeError: " <'png' 'jpeg' 'jpg' 확장자 파일만 업로드 가능합니다.>",
+                maxSizeError: "허용 용량 초과",
+                label: "책 사진 파일 업로드",
+            });
+        });
 
     }
 </script>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/aksfileupload@1.0.0/dist/aksFileUpload.min.js"></script>
 </body>
 </html>

@@ -1,4 +1,4 @@
-package calendar7.usedbookproject.service.Search;
+package calendar7.usedbookproject.Service.Search;
 
 public class SearchException extends RuntimeException
 {

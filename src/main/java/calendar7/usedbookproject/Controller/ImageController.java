@@ -19,7 +19,7 @@ public class ImageController
     @GetMapping(path = "/image")
     public ResponseEntity<Byte[]> getImage(@RequestParam("fileName") String fileName)
     {
-        File file = new File("C:\\Users\\byong\\UsedBookProject\\upload-dir\\" + fileName);
+        File file = new File("C:\\Users\\byong\\SpringBootProject\\UsedBookProject\\upload-dir\\" + fileName);
 
         ResponseEntity<Byte[]> result = null;
 

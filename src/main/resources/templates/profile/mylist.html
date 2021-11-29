@@ -41,7 +41,7 @@
 					<div class="collapse navbar-collapse" id="navbarSupportedContent">
 						<ul class="navbar-nav ml-auto mt-10">
 							<li class="nav-item">
-								<a class="nav-link text-white" href="ad-listing.html">
+								<a class="nav-link text-white" href="/mylist">
 									<img height="50px" src="images/user_icon.png" width="50px	">
 								</a>
 							</li>
@@ -63,7 +63,6 @@
 			<div class="col-md-10 offset-md-1 col-lg-4 offset-lg-0">
 				<div class="sidebar">
 
-
 					<!-- 유저 위젯 -->
 					<div class="widget user-dashboard-profile">
 						<!-- 유저 이미지 -->
@@ -79,15 +78,14 @@
 						<a class="btn btn-main-sm" href="../themes/user-profile.html">Edit Profile</a>
 					</div>
 
-
 					<!-- 프로필 링크 -->
 					<div class="widget user-dashboard-menu">
 						<ul>
 							<li class="active">
-								<a href="mylist.html"><i class="fa fa-user"></i> My Ads</a>
+								<a href="/mylist"><i class="fa fa-user"></i>My Ads<span th:text="${list.size()}"></span></a>
 							</li>
 							<li>
-								<a href="archive.html"><i class="fa fa-file-archive-o"></i>Archeved Ads <span>12</span></a>
+								<a href="/archive"><i class="fa fa-file-archive-o"></i>Archeved Items</a>
 							</li>
 							<li>
 								<a href=""><i class="fa fa-cog"></i> Logout</a>
@@ -98,33 +96,32 @@
 						</ul>
 					</div>
 
-					<!-- delete-account modal -->
-					<!-- delete account popup modal start-->
-                <!-- Modal -->
-                <div class="modal fade" id="deleteaccount" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-                  aria-hidden="true">
-                  <div class="modal-dialog modal-dialog-centered" role="document">
-                    <div class="modal-content">
-                      <div class="modal-header border-bottom-0">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                          <span aria-hidden="true">&times;</span>
-                        </button>
-                      </div>
-                      <div class="modal-body text-center">
-                        <img src="../../static/images/account/Account1.png" class="img-fluid mb-2" alt="">
-                        <h6 class="py-2">Are you sure you want to delete your account?</h6>
-                        <p>Do you really want to delete these records? This process cannot be undone.</p>
-                        <textarea name="message" id="" cols="40" rows="4" class="w-100 rounded"></textarea>
-                      </div>
-                      <div class="modal-footer border-top-0 mb-3 mx-5 justify-content-lg-between justify-content-center">
-                        <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
-                        <button type="button" class="btn btn-danger">Delete</button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <!-- delete account popup modal end-->
-					<!-- delete-account modal -->
+					<!-- 계정 삭제 누르면 튀어나오는 창-->
+					<div class="modal fade" id="deleteaccount" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+						<div class="modal-dialog modal-dialog-centered" role="document">
+							<div class="modal-content">
+
+								<div class="modal-header border-bottom-0">
+									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+										<span aria-hidden="true">&times;</span>
+									</button>
+								</div>
+
+								<div class="modal-body text-center">
+									<img src="images/account/Account1.png" class="img-fluid mb-2" alt="">
+									<h6 class="py-2">Are you sure you want to delete your account?</h6>
+									<p>Do you really want to delete these records? This process cannot be undone.</p>
+									<textarea name="message" id="" cols="40" rows="4" class="w-100 rounded"></textarea>
+								</div>
+
+								<div class="modal-footer border-top-0 mb-3 mx-5 justify-content-lg-between justify-content-center">
+									<button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
+									<button type="button" class="btn btn-danger">Delete</button>
+								</div>
+
+							</div>
+						</div>
+					</div>
 
 				</div>
 			</div>
@@ -147,18 +144,18 @@
 
 						<!-- 테이블 바디 -->
 						<tbody>
-							<tr>
+							<tr th:each="item : ${list}">
 								<!-- 제품 이미지 -->
 								<td class="product-thumb">
-									<img width="80px" height="auto" src="../../static/images/products/products-1.jpg" alt="image description"></td>
+									<img width="80px" height="auto" th:src="${item.getImageLink()}" alt="image description"></td>
 
 								<!-- 제품 정보 -->
 								<td class="product-details">
-									<h3 class="title">Macbook Pro 15inch</h3>
-									<span class="add-id"><strong>Ad ID:</strong> ng3D5hAMHPajQrM</span>
-									<span><strong>Posted on: </strong><time>Jun 27, 2017</time> </span>
-									<span class="status active"><strong>Status</strong>Active</span>
-									<span class="location"><strong>Location</strong>Dhaka,Bangladesh</span>
+									<h3 class="title" th:text="${item.getTitle()}"></h3>
+									<span class="add-id"><strong>판매 가격:</strong><a th:text="${item.getSalePrice()} + '원'"></a></span>
+									<span class="location"><strong>출판사:</strong><a th:text="${item.getPublisher()}"></a></span>
+									<span><strong>출판일:</strong><time th:text="${item.getPublicationDate()}"></time></span>
+									<span class="status active"><strong>상태:</strong>판매중</span>
 								</td>
 
 								<!-- 액션 (조회, 삭제, 수정 등) -->
@@ -176,7 +173,7 @@
 												</a>
 											</li>
 											<li class="list-inline-item">
-												<a data-toggle="tooltip" data-placement="top" title="Delete" class="delete" href="">
+												<a data-toggle="tooltip" data-placement="top" title="Delete" class="delete" th:href=" '/delete?postid=' + ${item.getPostID()} + '&redirecturl=mylist'">
 													<i class="fa fa-trash"></i>
 												</a>
 											</li>
@@ -186,6 +183,7 @@
 
 							</tr>
 						</tbody>
+
 					</table>
 
 				</div>
