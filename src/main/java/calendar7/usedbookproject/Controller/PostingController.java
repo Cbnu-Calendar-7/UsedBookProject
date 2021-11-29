@@ -57,7 +57,6 @@ public class    PostingController
             return "main/List_View";
         }
         return "main/Search_Page";
-
     }
 
     @PostMapping(path = "/add")
