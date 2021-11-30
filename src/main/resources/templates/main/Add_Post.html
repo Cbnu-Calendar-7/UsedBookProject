@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
 
   <!-- SITE TITTLE -->
@@ -98,69 +98,69 @@
                     <div class="row">
 
                         <div class="col-lg-12">
-                            <h3>서적 판매 등록</h3>
+                            <h3>Post book</h3>
                         </div>
 
                         <div class="col-lg-6" >
 
                             <div>
-                                <h6 class="font-weight-bold pt-4 pb-1">책 제목:</h6>
-                                <input type="text" name="title" id="title" class=" border w-100 p-2 bg-white text-capitalize" placeholder="책 제목을 써주세요">
+                                <h6 class="font-weight-bold pt-4 pb-1">Book Title:</h6>
+                                <input type="text" name="title" id="title" class=" border w-100 p-2 bg-white text-capitalize" placeholder="enter book title">
                             </div>
 
 
-                            <h6 class="font-weight-bold pt-4 pb-1">거래 방법:</h6>
+                            <h6 class="font-weight-bold pt-4 pb-1">how to trade:</h6>
                             <div class="row px-3" id="deal_method" >
 
                                 <div class="col-lg-4 mr-lg-4 my-2 rounded bg-white" >
                                     <input type="radio" name="deal_method" value="Direct" id="Deal_Method_Direct" onclick="addInputText()">
-                                    <label for="Deal_Method_Direct" class="py-2">직거래</label>
+                                    <label for="Deal_Method_Direct" class="py-2">direct</label>
                                 </div>
 
                                 <div class="col-lg-4 mr-lg-4 my-2 rounded bg-white ">
                                     <input type="radio" name="deal_method" value="Parcel" id="Deal_Method_Parcel" onclick="DelInputText()">
-                                    <label for="Deal_Method_Parcel" class="py-2">택배</label>
+                                    <label for="Deal_Method_Parcel" class="py-2">parcel</label>
                                 </div>
 
                                 <!--  addInputText() - 생성 ,  DelInputText() - 삭제 -->
                                 <!--<input type="text" id="deal_place" name="deal_place" class="border w-100 p-2 bg-white text-capitalize" placeholder="원하는 거래 장소를 써주세요">-->
                             </div>
 
-                            <h6 class="font-weight-bold pt-4 pb-1">설명:</h6>
-                            <textarea name="detail" id="detail" class="border p-3 w-100" rows="7" placeholder="책에 대해 자세한 설명을 써주세요"></textarea>
+                            <h6 class="font-weight-bold pt-4 pb-1">explanation:</h6>
+                            <textarea name="detail" id="detail" class="border p-3 w-100" rows="7" placeholder="Please write a detailed explanation about the book"></textarea>
 
-                            <h6 class="font-weight-bold pt-4 pb-1">오픈 카카오톡 채팅방 링크:</h6>
-                            <input type="text" id="kakaotalk_url" name="kakaotalk_url" class="border w-100 p-2 bg-white text-capitalize" placeholder="링크 주소를 써주세요">
+                            <h6 class="font-weight-bold pt-4 pb-1">open kakaoTalk chat link:</h6>
+                            <input type="text" id="kakaotalk_url" name="kakaotalk_url" class="border w-100 p-2 bg-white text-capitalize" placeholder="input kakao link">
 
                         </div>
 
                         <div class="col-lg-6">
 
-                            <h6 class="font-weight-bold pt-4 pb-1">지은이:</h6>
-                            <input type="text" id="author" name="author" class="border w-100 p-2 bg-white text-capitalize" placeholder="지은이를 써주세요">
+                            <h6 class="font-weight-bold pt-4 pb-1">Author:</h6>
+                            <input type="text" id="author" name="author" class="border w-100 p-2 bg-white text-capitalize" placeholder="please input author">
 
-                            <h6 class="font-weight-bold pt-4 pb-1">출판사:</h6>
-                            <input type="text" id="publisher" name="publisher" class="border w-100 p-2 bg-white text-capitalize" placeholder="출판사를 써주세요">
+                            <h6 class="font-weight-bold pt-4 pb-1">Publisher:</h6>
+                            <input type="text" id="publisher" name="publisher" class="border w-100 p-2 bg-white text-capitalize" placeholder="please input publisher">
 
-                            <h6 class="font-weight-bold pt-4 pb-1">출판일:</h6>
+                            <h6 class="font-weight-bold pt-4 pb-1">publishing date:</h6>
                             <input type="date" id="publication_date" name="publication_date" class="border w-100 p-2 bg-white text-capitalize">
 
 
                             <div class="price">
-                                <h6 class="font-weight-bold pt-4 pb-1">책 가격 (원):</h6>
+                                <h6 class="font-weight-bold pt-4 pb-1">price (won):</h6>
                                 <div class="row px-3">
 
                                     <div class="col-lg-3 mr-lg-4 rounded bg-white my-2 ">
-                                        <input type="text" id="origin_price" name="origin_price" class="border-0 py-2 w-100 price" placeholder="원래 가격" >
+                                        <input type="text" id="origin_price" name="origin_price" class="border-0 py-2 w-100 price" placeholder="origin price" >
                                     </div>
 
                                     <div class="col-lg-3 mr-lg-4 rounded bg-white my-2">
-                                        <input type="text" id="sale_price" name="sale_price" class="border-0 py-2 w-100 price" placeholder="판매 가격" >
+                                        <input type="text" id="sale_price" name="sale_price" class="border-0 py-2 w-100 price" placeholder="sales" >
                                     </div>
 
                                     <div class="col-lg-4 mrx-4 rounded bg-white my-2">
                                         <input type="checkbox" id="Negotiable" name="Negotiable" value="true">
-                                        <label for="Negotiable" class="py-2">흥정 가능 여부</label>
+                                        <label for="Negotiable" class="py-2">bargain</label>
                                     </div>
                                 </div>
                             </div>
@@ -188,85 +188,85 @@
                 <div class="row">
 
                     <div class="col-lg-12">
-                        <h3>책 상태</h3>
+                        <h3>book condition</h3>
                     </div>
 
                     <div class="col-lg-6">
-                        <h6 class="font-weight-bold pt-4 pb-1">밑줄 흔적</h6>
+                        <h6 class="font-weight-bold pt-4 pb-1">underlined</h6>
                         <div class="row px-3">
 
                             <div class="col-lg-3 mr-lg-4 my-2 rounded bg-white">
                                 <input type="radio" name="Underline" value="None" id="Underline_None">
-                                <label for="Underline_None" class="py-2">없음</label>
+                                <label for="Underline_None" class="py-2">none</label>
                             </div>
 
                             <div class="col-lg-3 mr-lg-4 my-2 rounded bg-white ">
                                 <input type="radio" name="Underline" value="Pencil" id="Underline_Pencil">
-                                <label for="Underline_Pencil" class="py-2">연필/샤프</label>
+                                <label for="Underline_Pencil" class="py-2">erasable</label>
                             </div>
 
-                            <div class="col-lg-3 mr-lg-4 my-2 rounded bg-white ">
+                            <div class="col-lg-3 mr-lg-4 my-2 rounded bg-white "  style="padding-right: 10px">
                                 <input type="radio" name="Underline" value="Highlighter" id="Underline_Highlighter">
-                                <label for="Underline_Highlighter" class="py-2">볼팬/형관펜</label>
+                                <label for="Underline_Highlighter" class="py-2">non-erasable</label>
                             </div>
                         </div>
                     </div>
 
                     <div class="col-lg-6">
-                        <h6 class="font-weight-bold pt-4 pb-1">필기 흔적</h6>
+                        <h6 class="font-weight-bold pt-4 pb-1">noted</h6>
                         <div class="row px-3">
 
                             <div class="col-lg-3 mr-lg-4 my-2 rounded bg-white">
                                 <input type="radio" name="Note" value="None" id="Note_None">
-                                <label for="Note_None" class="py-2">없음</label>
+                                <label for="Note_None" class="py-2">none</label>
                             </div>
 
                             <div class="col-lg-3 mr-lg-4 my-2 rounded bg-white ">
                                 <input type="radio" name="Note" value="Pencil" id="Note_Pencil">
-                                <label for="Note_Pencil" class="py-2">연필/샤프</label>
+                                <label for="Note_Pencil" class="py-2">erasable</label>
                             </div>
 
-                            <div class="col-lg-3 mr-lg-4 my-2 rounded bg-white ">
+                            <div class="col-lg-3 mr-lg-4 my-2 rounded bg-white "  style="padding-right: 10px">
                                 <input type="radio" name="Note" value="Highlighter" id="Note_Highlighter">
-                                <label for="Note_Highlighter" class="py-2">볼팬/형관펜</label>
+                                <label for="Note_Highlighter" class="py-2">non-erasable</label>
                             </div>
                         </div>
                     </div>
 
                     <div class="col-lg-6">
-                        <h6 class="font-weight-bold pt-4 pb-1">페이지 변색/훼손</h6>
+                        <h6 class="font-weight-bold pt-4 pb-1">yellowing/damaged</h6>
                         <div class="row px-3">
 
                             <div class="col-lg-2 mr-lg-4 my-2 rounded bg-white">
                                 <input type="radio" name="Damage" value="false" id="Damage_False">
-                                <label for="Damage_False" class="py-2">없음</label>
+                                <label for="Damage_False" class="py-2">none</label>
                             </div>
 
                             <div class="col-lg-2 mr-lg-4 my-2 rounded bg-white ">
                                 <input type="radio" name="Damage" value="true" id="Damage_True">
-                                <label for="Damage_True" class="py-2">있음</label>
+                                <label for="Damage_True" class="py-2">exist</label>
                             </div>
 
                         </div>
                     </div>
 
                     <div class="col-lg-6">
-                        <h6 class="font-weight-bold pt-4 pb-1">책 겉표지</h6>
+                        <h6 class="font-weight-bold pt-4 pb-1">book cover</h6>
                         <div class="row px-3">
 
                             <div class="col-lg-3 mr-lg-4 my-2 rounded bg-white">
                                 <input type="radio" name="Cover" value="clean" id="Cover_Clean">
-                                <label for="Damage_False" class="py-2">깨끗함</label>
+                                <label for="Damage_False" class="py-2">clean</label>
                             </div>
 
                             <div class="col-lg-3 mr-lg-4 my-2 rounded bg-white ">
                                 <input type="radio" name="Cover" value="little_dirty" id="Cover_Little_Dirty">
-                                <label class="py-2" for="Damage_True">조금 더러움</label>
+                                <label class="py-2" for="Damage_True">little dirty</label>
                             </div>
 
                             <div class="col-lg-3 mr-lg-4 my-2 rounded bg-white ">
                                 <input type="radio" name="Cover" value="very_dirty" id="Cover_Very_Dirty">
-                                <label class="py-2" for="Damage_True">매우 더러움</label>
+                                <label class="py-2" for="Damage_True">very dirty</label>
                             </div>
 
                         </div>
@@ -275,7 +275,7 @@
                 </div>
             </fieldset>
             <!-- seller-information end-->
-            <button type="submit" class="btn btn-primary d-block mt-2">등록하기</button>
+            <button type="submit" class="btn btn-primary d-block mt-2">submit</button>
         </form>
 
     </div>
@@ -351,7 +351,7 @@
             newText.type='text';
             newText.id='deal_place';
             newText.name='deal_place';
-            newText.placeholder='거래 장소';
+            newText.placeholder='trading place';
             newText.classList.add('border');
             newText.classList.add('w-100');
             newText.classList.add('p-2');
@@ -381,9 +381,9 @@
             maxSize: "50 MB",
             multiple: false,
             fileType: ['png', 'jpeg', 'jpg'],
-            fileTypeError: " <'png' 'jpeg' 'jpg' 확장자 파일만 업로드 가능합니다.>",
-            maxSizeError: "허용 용량 초과",
-            label: "책 사진 파일 업로드",
+            fileTypeError: " < only 'png' 'jpeg' 'jpg' extension allowed.>",
+            maxSizeError: "file size is too big",
+            label: "upload book img file",
         });
     });
 

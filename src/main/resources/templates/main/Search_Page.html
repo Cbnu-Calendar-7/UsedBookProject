@@ -59,8 +59,8 @@
             <form action="/list" class="justify-content-center" method="get" name="searchform" onsubmit="return validform()">
                 <div class="search">
                     <i class="fa fa-search"></i>
-                    <input class="form-control" id="searchtext" name="keyword" placeholder="찾으시는 책의 이름을 써주세요." type="text">
-                    <button class="btn btn-primary">검색</button>
+                    <input class="form-control" id="searchtext" name="keyword" placeholder="search keyword" type="text">
+                    <button class="btn btn-primary">search</button>
                 </div>
             </form>
         </div>
@@ -76,7 +76,7 @@
         var keyword = document.forms["searchform"]["keyword"].value;
 
         if (keyword == null || keyword == "") {
-            alert("검색어를 입력해 주세요!");
+            alert("please enter search keyword!");
             return false;
         }
     }

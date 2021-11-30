@@ -63,10 +63,10 @@
 					<form action="/list" method="get" name="searchform" onsubmit="return validform()">
 						<div class="form-row">
 							<div class="form-group col-md-10">
-								<input class="form-control my-2 my-lg-0" name="keyword" placeholder="검색어" type="text">
+								<input class="form-control my-2 my-lg-0" name="keyword" placeholder="Search keyword" type="text">
 							</div>
 							<div class="form-group col-md-2">
-								<button class="btn btn-primary" id="searchTextButton" style="background-color:transparent; color: white; border-color: white;" type="submit">검색</button>
+								<button class="btn btn-primary" id="searchTextButton" style="background-color:transparent; color: white; border-color: white;" type="submit">search</button>
 							</div>
 						</div>
 					</form>
@@ -84,8 +84,8 @@
 		<div class="row">
 			<div class="col-md-12">
 				<div class="search-result bg-gray">
-					<h2 th:text=" '&quot;' + ${keyword.get()} + '&quot;' + '의 검색 결과' "></h2>
-					<p th:text=" '약&nbsp;' + ${items.size()} + '&nbsp;개&nbsp;' + ${#dates.format(date, 'yyyy/MM/dd HH:mm')}" ></p>
+					<h2 th:text=" 'result of' + '&quot;' + ${keyword.get()} + '&quot;'"></h2>
+					<p th:text=" 'about&nbsp;' + ${items.size()} + '&nbsp;results&nbsp;' + ${#dates.format(date, 'yyyy/MM/dd HH:mm')}" ></p>
 				</div>
 			</div>
 		</div>
@@ -111,7 +111,7 @@
 										onclick="location.href='Ad-listing.html'"
 										th:onclick="|location.href='@{/add}'|"
 										type="button">
-									<strong>상품 등록</strong>
+									<strong>Sell</strong>
 								</button>
 							</div>
 						</div>
@@ -127,7 +127,7 @@
 						<!--상품 이미지-->
                         <div class="col-lg-2 align-self-center">
                             <a href="../themes/single.html">
-                            <img alt="책 이미지" class="img-fluid" width="160px" height="auto" th:src="${item.imageLink}">
+                            <img alt="book img" class="img-fluid" width="160px" height="auto" th:src="${item.imageLink}">
                             </a>
                         </div>
 
@@ -159,46 +159,46 @@
 										<br>
 										<li class="list-inline-item">
 											<i class="bi bi-caret-right"></i>
-											<a th:if="${item.dealMethod} == 0" th:text=" '직거래(' + ${item.dealPlace.toString()} + ')' "></a>
-											<a th:text="택배" th:unless="${item.dealMethod} == 0"></a>
+											<a th:if="${item.dealMethod} == 0" th:text=" 'direct(' + ${item.dealPlace.toString()} + ')' "></a>
+											<a th:text="parcel" th:unless="${item.dealMethod} == 0"></a>
 										</li>
 
 										<li class="list-inline-item">
 											<i class="bi bi-caret-right"></i>
-											<a th:if="${item.negotiable} != 0" th:text="'흥정가능'"></a>
-											<a th:unless="${item.negotiable} != 0" th:text="'흥정 불가능'"></a>
+											<a th:if="${item.negotiable} != 0" th:text="'can bargain'"></a>
+											<a th:unless="${item.negotiable} != 0" th:text="'non-bargain'"></a>
 										</li>
 									</ul>
 
 									<div>
-										<a class="text-danger font-weight-bold" th:text=" '판매 가격:' + ${item.salePrice} + '원' "></a><br>
-										<small class="text-muted" th:text=" '원래 가격:' + ${item.originPrice} + '원' "></small>
+										<a class="text-danger font-weight-bold" th:text=" 'sell:' + ${item.salePrice} + 'won' "></a><br>
+										<small class="text-muted" th:text=" 'origin price:' + ${item.originPrice} + 'won' "></small>
 									</div>
 								</div>
 								<div class="col-3" style="font-size: 14px;"><br>
-									<h6>책 상태</h6>
+									<h6>condition</h6>
 									<div>
-										<a style="font-weight: bold">밑줄 흔적</a>
-										<a th:if="${item.underline == 0}" th:class="font-weight-light">없음</a>
-										<a th:if="${item.underline == 1}" th:class="font-weight-light">연필/샤프</a>
-										<a th:if="${item.underline == 2}" th:class="font-weight-light">볼펜/형광펜</a>
+										<a style="font-weight: bold">underlined</a>
+										<a th:if="${item.underline == 0}" th:class="font-weight-light">none</a>
+										<a th:if="${item.underline == 1}" th:class="font-weight-light">erasable</a>
+										<a th:if="${item.underline == 2}" th:class="font-weight-light">non-erasable</a>
 									</div>
 									<div>
-										<a style="font-weight: bold">필기 흔적</a>
-										<a th:if="${item.note == 0}" th:class="font-weight-light">없음</a>
-										<a th:if="${item.note == 1}" th:class="font-weight-light">연필/샤프</a>
-										<a th:if="${item.note == 2}" th:class="font-weight-light">볼펜/형광펜</a>
+										<a style="font-weight: bold">noted</a>
+										<a th:if="${item.note == 0}" th:class="font-weight-light">none</a>
+										<a th:if="${item.note == 1}" th:class="font-weight-light">erasable</a>
+										<a th:if="${item.note == 2}" th:class="font-weight-light">non-erasable</a>
 									</div>
 									<div>
-										<a style="font-weight: bold">페이지 훼손/변색</a>
-										<a th:if="${item.damage != 0}" th:class="font-weight-light">없음</a>
-										<a th:unless="${item.damage != 0}" th:class="font-weight-light">있음</a>
+										<a style="font-weight: bold">yellowing/damaged</a>
+										<a th:if="${item.damage != 0}" th:class="font-weight-light">none</a>
+										<a th:unless="${item.damage != 0}" th:class="font-weight-light">exist</a>
 									</div>
 									<div>
-										<a style="font-weight: bold">겉 표지</a>
-										<a th:if="${item.cover == 0}" th:class="font-weight-light">깨끗함</a>
-										<a th:if="${item.cover == 1}" th:class="font-weight-light">약간 더러움</a>
-										<a th:if="${item.cover == 2}" th:class="font-weight-light">많이 더러움</a>
+										<a style="font-weight: bold">book cover</a>
+										<a th:if="${item.cover == 0}" th:class="font-weight-light">clean</a>
+										<a th:if="${item.cover == 1}" th:class="font-weight-light">little dirty</a>
+										<a th:if="${item.cover == 2}" th:class="font-weight-light">very dirty</a>
 									</div>
 								</div>
 								<div class="col"><br>
@@ -208,14 +208,13 @@
 									<br>
 									<div class="row justify-content-center">
 										<a class="btn btn-sm btn-outline-warning " style="font-size: 14px;" th:href="${item.kakaoTalkUrl}">
-											판매자에게<br>
-											연락하기
+											contact
 										</a>
 									</div>
 									<br>
 									<div class="row justify-content-center ">
 										<a class="btn btn-sm btn-outline-danger " style="font-size: 14px;">
-											찜하기
+											add wishlist
 										</a>
 									</div>
 								</div>
@@ -311,7 +310,7 @@
 		var keyword = document.forms["searchform"]["keyword"].value;
 
 		if (keyword == null || keyword == "") {
-			alert("검색어를 입력해 주세요!");
+			alert("please enter search keyword!");
 			return false;
 		}
 	}

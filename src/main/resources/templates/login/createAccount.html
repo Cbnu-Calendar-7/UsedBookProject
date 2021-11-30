@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ko">
+<html lang="en">
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -119,10 +119,10 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="/login/signin">로그인</a>
+                    <a class="nav-link" href="/login/signin">Sign in</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/login/createAccount">회원가입</a>
+                    <a class="nav-link" href="/login/createAccount">Sign up</a>
                 </li>
             </ul>
 
@@ -135,66 +135,66 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">회원가입</div>
+                    <div class="card-header">Sign up</div>
                     <div class="card-body">
                         <form name="my-form" onsubmit="return validform()" action="" method="post">
 
                             <div class="form-group row">
-                                <label for="user_id" class="col-md-4 col-form-label text-md-right">아이디</label>
+                                <label for="user_id" class="col-md-4 col-form-label text-md-right">ID</label>
                                 <div class="col-md-6">
                                     <input type="text" id="user_id" class="form-control" name="userid">
                                 </div>
                             </div>
 
                             <div class="form-group row">
-                                <label for="user_password" class="col-md-4 col-form-label text-md-right">비밀번호</label>
+                                <label for="user_password" class="col-md-4 col-form-label text-md-right">Password</label>
                                 <div class="col-md-6 form-check">
                                     <input type="password" id="user_password" class="form-control" name="userpassword">
                                 </div>
                             </div>
 
                             <div class="form-group row">
-                                <label for="user_password_check" class="col-md-4 col-form-label text-md-right">비밀번호 확인</label>
+                                <label for="user_password_check" class="col-md-4 col-form-label text-md-right">Password check</label>
                                 <div class="col-md-6 form-check">
                                     <input type="password" id="user_password_check" class="form-control" name="userpasswordcheck">
                                 </div>
                             </div>
 
                             <div class="form-group row">
-                                <label for="user_name" class="col-md-4 col-form-label text-md-right">이름</label>
+                                <label for="user_name" class="col-md-4 col-form-label text-md-right">name</label>
                                 <div class="col-md-6">
                                     <input type="text" id="user_name" class="form-control" name="username">
                                 </div>
                             </div>
 
                             <div class="form-group row">
-                                <label for="user_nickname" class="col-md-4 col-form-label text-md-right">닉네임</label>
+                                <label for="user_nickname" class="col-md-4 col-form-label text-md-right">nickname</label>
                                 <div class="col-md-6">
                                     <input type="text" id="user_nickname" class="form-control" name="usernickname">
                                 </div>
                             </div>
 
                             <div class="form-group row">
-                                <label for="user_email" class="col-md-4 col-form-label text-md-right">이메일</label>
+                                <label for="user_email" class="col-md-4 col-form-label text-md-right">e-mail</label>
                                 <div class="col-md-6">
                                     <input type="email" id="user_email" class="form-control" name="useremail">
                                 </div>
                             </div>
 
                             <div class="form-group row">
-                                <label for="user_phone_number" class="col-md-4 col-form-label text-md-right">전화번호</label>
+                                <label for="user_phone_number" class="col-md-4 col-form-label text-md-right">tel</label>
                                 <div class="col-md-6">
                                     <input type="text" id="user_phone_number" class="form-control" name="userphonenumber">
                                 </div>
                             </div>
 
                             <div class="form-group row">
-                                <label for="imagefile" class="col-md-4 col-form-label text-md-right" >학생증 사진</label>
+                                <label for="imagefile" class="col-md-4 col-form-label text-md-right" >Student ID card</label>
                                 <input type="file" class="col-md-4 form-control-file" formenctype="multipart/form-data" id="imagefile">
                             </div>
 
                             <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">등록</button>
+                                <button type="submit" class="btn btn-primary">submit</button>
                             </div>
                     </form>
                 </div>
@@ -218,48 +218,48 @@
 
         if (a==null || a=="")
         {
-            alert("이름을 입력해 주세요!");
+            alert("please input your name!");
             return false;
         }
         else if (b==null || b=="")
         {
-            alert("이메일을 입력해 주세요!");
+            alert("please input email!");
             return false;
         }
         else if (c==null || c=="")
         {
-            alert("비밀번호를 입력해주세요!");
+            alert("please input password!");
             return false;
         }
         else if (d==null || d=="")
         {
-            alert("비밀번호 확인을 입력해주세요!");
+            alert("please input password check!");
             return false;
         }
         else if (e==null || e=="")
         {
-            alert("아이디을 입력해주세요!");
+            alert("please input ID!");
             return false;
         }
         else if (f==null || f=="")
         {
-            alert("전화번호을 입력해주세요!");
+            alert("please input tel number!");
             return false;
         }
         else if (g==null || g=="")
         {
-            alert("닉네임을 입력해주세요!");
+            alert("please input nickname!");
             return false;
         }
         else if (h==null || h=="")
         {
-            alert("학생증 사진을 등록해주세요!");
+            alert("please input student ID card!");
             return false;
         }
 
         if (c!=d)
         {
-            alert("비밀번호와 비밀번호 확인이 일치하지 않습니다!");
+            alert("wrong password check!");
             return false;
         }
 
@@ -270,9 +270,9 @@
                 maxSize: "50 MB",
                 multiple: false,
                 fileType: ['png', 'jpeg', 'jpg'],
-                fileTypeError: " <'png' 'jpeg' 'jpg' 확장자 파일만 업로드 가능합니다.>",
-                maxSizeError: "허용 용량 초과",
-                label: "책 사진 파일 업로드",
+                fileTypeError: " < only 'png' 'jpeg' 'jpg' extension allowed.>",
+                maxSizeError: "file size is too big",
+                label: "upload book image file",
             });
         });
 
