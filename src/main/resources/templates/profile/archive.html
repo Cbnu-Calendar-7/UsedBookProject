@@ -72,8 +72,8 @@
 						</div>
 						<!-- 유저 정보 -->
 						<h5 class="text-center" th:text="${user.getNickname()}"></h5>
-						<p th:text="'전화번호 : ' + ${user.getPhonenumber()}"></p>
-						<p th:text="'이메일 : ' + ${user.getEmail()}"></p>
+						<p th:text="'Phonenumber : ' + ${user.getPhonenumber()}"></p>
+						<p th:text="'Email : ' + ${user.getEmail()}"></p>
 
 						<!-- 유저 정보 수정 링크-->
 						<a class="btn btn-main-sm" href="../themes/user-profile.html">Edit Profile</a>
@@ -151,10 +151,10 @@
 							<!-- 제품 정보 -->
 							<td class="product-details">
 								<h3 class="title" th:text="${item.getTitle()}"></h3>
-								<span class="add-id"><strong>판매 가격:</strong><a th:text="${item.getSalePrice()} + '원'"></a></span>
-								<span class="location"><strong>출판사:</strong><a th:text="${item.getPublisher()}"></a></span>
-								<span><strong>출판일:</strong><time th:text="${item.getPublicationDate()}"></time></span>
-								<span class="status active"><strong>상태:</strong>판매중</span>
+								<span class="add-id"><strong>Price:</strong><a th:text="${item.getSalePrice()} + '원'"></a></span>
+								<span class="location"><strong>Publisher:</strong><a th:text="${item.getPublisher()}"></a></span>
+								<span><strong>Publication&nbsp;Date:</strong><time th:text=" '&nbsp;&nbsp;' + ${item.getPublicationDate()}"></time></span>
+								<span class="status active"><strong>State:</strong>On sale</span>
 							</td>
 
 							<!-- 액션 (조회, 삭제, 수정 등) -->

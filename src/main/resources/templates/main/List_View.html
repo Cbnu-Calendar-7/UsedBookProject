@@ -165,14 +165,14 @@
 
 										<li class="list-inline-item">
 											<i class="bi bi-caret-right"></i>
-											<a th:if="${item.negotiable} != 0" th:text="'can bargain'"></a>
-											<a th:unless="${item.negotiable} != 0" th:text="'non-bargain'"></a>
+											<a th:if="${item.negotiable} != 0" th:text="'Negotaible'"></a>
+											<a th:unless="${item.negotiable} != 0" th:text="'Unnegotiable'"></a>
 										</li>
 									</ul>
 
 									<div>
-										<a class="text-danger font-weight-bold" th:text=" 'sell:' + ${item.salePrice} + 'won' "></a><br>
-										<small class="text-muted" th:text=" 'origin price:' + ${item.originPrice} + 'won' "></small>
+										<a class="text-danger font-weight-bold" th:text=" 'sell:' + ${item.salePrice} + 'Won' "></a><br>
+										<small class="text-muted" th:text=" 'origin price:' + ${item.originPrice} + 'Won' "></small>
 									</div>
 								</div>
 								<div class="col-3" style="font-size: 14px;"><br>
