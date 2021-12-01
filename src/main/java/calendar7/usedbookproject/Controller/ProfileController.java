@@ -24,8 +24,8 @@ public class ProfileController
         postRepo = salePostRepository;
 
         user = new User("TestID", "1234", "test@email.com", "01012345678", "TestNick", "TestName");
-        String list1 = "144,145,146";
-        String list2 = "141,142,143";
+        String list1 = "147";
+        String list2 = "147";
         user.setSaleslist(list1);
         user.setWishlist(list2);
     }
