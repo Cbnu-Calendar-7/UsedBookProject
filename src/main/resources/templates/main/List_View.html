@@ -108,8 +108,7 @@
 						<div class="col-md-6">
 							<div class="view">
 								<button class="btn btn-outline-primary float-end"
-										onclick="location.href='Ad-listing.html'"
-										th:onclick="|location.href='@{/add}'|"
+										th:onclick="|location.href='@{/apibooksearch}'|"
 										type="button">
 									<strong>Sell</strong>
 								</button>
@@ -176,7 +175,7 @@
 									</div>
 								</div>
 								<div class="col-3" style="font-size: 14px;"><br>
-									<h6>condition</h6>
+									<h6>Book Condition</h6>
 									<div>
 										<a style="font-weight: bold">underlined</a>
 										<a th:if="${item.underline == 0}" th:class="font-weight-light">none</a>
@@ -190,7 +189,7 @@
 										<a th:if="${item.note == 2}" th:class="font-weight-light">non-erasable</a>
 									</div>
 									<div>
-										<a style="font-weight: bold">yellowing/damaged</a>
+										<a style="font-weight: bold">discoloration/damaged</a>
 										<a th:if="${item.damage != 0}" th:class="font-weight-light">none</a>
 										<a th:unless="${item.damage != 0}" th:class="font-weight-light">exist</a>
 									</div>

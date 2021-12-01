@@ -24,8 +24,8 @@ public class SalePost
 
     private String title; // 책 제목
     private Date postDay; // 등록일
-    private Integer originPrice; // 원래 가격
-    private Integer salePrice; // 판매 가격
+    private String originPrice; // 원래 가격
+    private String salePrice; // 판매 가격
     private String author; // 지은이
     private String publisher; // 출판사
     private Boolean negotiable; // 흥정가능여부
@@ -52,8 +52,8 @@ public class SalePost
     }
 
     public SalePost(String phonenumber, String userID, String nickName,
-                     String title, Integer origin_Price,
-                    Integer sale_Price, String author, String publisher,
+                     String title, String origin_Price,
+                    String sale_Price, String author, String publisher,
                      Boolean isDeal, String detail, Integer deal_Method,
                     String image_link, Boolean damage, Integer note, Integer underline,
                     Integer cover, String deal_place, String publication_date)

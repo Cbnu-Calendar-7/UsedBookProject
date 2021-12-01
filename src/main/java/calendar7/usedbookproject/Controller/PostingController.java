@@ -64,7 +64,8 @@ public class    PostingController
                           @RequestParam("detail") String Detail, @RequestParam("kakaotalk_url") String Kakao_url, @RequestParam("author") String author,
                           @RequestParam("publisher") String Publisher, @RequestParam("publication_date") String publication_date, @RequestParam("origin_price") String Origin_price,
                           @RequestParam("sale_price") String Sale_price, @RequestParam("Negotiable") Optional<String> Negotiable, @RequestParam("Underline") String Underline,
-                          @RequestParam("Note") String Note, @RequestParam("Damage") String Damage, @RequestParam("Cover") String Cover, @RequestParam("deal_place") Optional<String> deal_place)
+                          @RequestParam("Note") String Note, @RequestParam("Damage") String Damage, @RequestParam("Cover") String Cover, @RequestParam("deal_place") Optional<String> deal_place,
+                          @RequestParam("isbn10") String isbn10, @RequestParam("isbn13") String isbn13)
     {
 
         SalePost newpost = new SalePost("TestID", "01012345678", "TestNick");
@@ -73,8 +74,8 @@ public class    PostingController
         newpost.setDetail(Detail);
         newpost.setPublicationDate(publication_date);
         newpost.setAuthor(author);
-        newpost.setOriginPrice(Integer.parseInt(Origin_price));
-        newpost.setSalePrice(Integer.parseInt(Sale_price));
+        newpost.setOriginPrice(Origin_price);
+        newpost.setSalePrice(Sale_price);
         newpost.setPublisher(Publisher);
         newpost.setKakaoTalkUrl(Kakao_url);
 

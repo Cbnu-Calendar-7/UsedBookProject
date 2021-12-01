@@ -105,7 +105,22 @@
 
                             <div>
                                 <h6 class="font-weight-bold pt-4 pb-1">Book Title:</h6>
-                                <input type="text" name="title" id="title" class=" border w-100 p-2 bg-white text-capitalize" placeholder="enter book title">
+                                <input type="text" name="title" id="title" class=" border w-100 p-2 bg-white text-capitalize" placeholder="enter book title" readonly>
+                            </div>
+
+                            <div class="isbn">
+                                <h6 class="font-weight-bold pt-4 pb-1">ISBN 10/13 :</h6>
+                                <div class="row px-3">
+
+                                    <div class="col-lg-5 mr-lg-4 rounded bg-white my-2 ">
+                                        <input type="text" id="isbn10" name="isbn10" class="border-0 py-2 w-100 price" placeholder="isbn10" readonly>
+                                    </div>
+
+                                    <div class="col-lg-5 mr-lg-4 rounded bg-white my-2">
+                                        <input type="text" id="isbn13" name="isbn13" class="border-0 py-2 w-100 price" placeholder="isbn13" readonly>
+                                    </div>
+
+                                </div>
                             </div>
 
 
@@ -137,25 +152,25 @@
                         <div class="col-lg-6">
 
                             <h6 class="font-weight-bold pt-4 pb-1">Author:</h6>
-                            <input type="text" id="author" name="author" class="border w-100 p-2 bg-white text-capitalize" placeholder="please input author">
+                            <input type="text" id="author" name="author" class="border w-100 p-2 bg-white text-capitalize" placeholder="please input author" readonly>
 
                             <h6 class="font-weight-bold pt-4 pb-1">Publisher:</h6>
-                            <input type="text" id="publisher" name="publisher" class="border w-100 p-2 bg-white text-capitalize" placeholder="please input publisher">
+                            <input type="text" id="publisher" name="publisher" class="border w-100 p-2 bg-white text-capitalize" placeholder="please input publisher" readonly>
 
-                            <h6 class="font-weight-bold pt-4 pb-1">publishing date:</h6>
-                            <input type="date" id="publication_date" name="publication_date" class="border w-100 p-2 bg-white text-capitalize">
+                            <h6 class="font-weight-bold pt-4 pb-1">Publishing date:</h6>
+                            <input type="text" id="publication_date" name="publication_date" class="border w-100 p-2 bg-white text-capitalize" readonly>
 
 
                             <div class="price">
-                                <h6 class="font-weight-bold pt-4 pb-1">price (won):</h6>
+                                <h6 class="font-weight-bold pt-4 pb-1">Original Price / Sales Price:</h6>
                                 <div class="row px-3">
 
                                     <div class="col-lg-3 mr-lg-4 rounded bg-white my-2 ">
-                                        <input type="text" id="origin_price" name="origin_price" class="border-0 py-2 w-100 price" placeholder="origin price" >
+                                        <input type="text" id="origin_price" name="origin_price" class="border-0 py-2 w-100 price" placeholder="original price" readonly>
                                     </div>
 
                                     <div class="col-lg-3 mr-lg-4 rounded bg-white my-2">
-                                        <input type="text" id="sale_price" name="sale_price" class="border-0 py-2 w-100 price" placeholder="sales" >
+                                        <input type="text" id="sale_price" name="sale_price" class="border-0 py-2 w-100 price" placeholder="sales price" >
                                     </div>
 
                                     <div class="col-lg-4 mrx-4 rounded bg-white my-2">
@@ -337,6 +352,17 @@
 
 <script>
 
+    var item = JSON.parse(localStorage.getItem("item"));
+    $('#title').val(item.title);
+    $('#author').val(item.author);
+    $('#publisher').val(item.publisher);
+    $('#publication_date').val(item.pubdate);
+    $('#origin_price').val(item.price);
+    $('#isbn10').val(item.isbn10);
+    $('#isbn13').val(item.isbn13);
+
+
+
     var count = 0;
 
     function addInputText()
@@ -374,6 +400,7 @@
         }
     }
 
+
     $(function () {
         $("#aks-file-upload").aksFileUpload({
             fileUpload: "#uploadfile",
@@ -386,44 +413,6 @@
             label: "upload book img file",
         });
     });
-
-    function ValidCheck()
-    {
-
-        var title = $('#title');
-        var dealMethod = $('#deal_method');
-        var detail = $('#detail');
-        var author = $('#author');
-        var kakaotalkUrl = $('#kakaotalk_url');
-        var publicationDate = $('#publication_date');
-        var originPrice = $('#origin_price');
-        var salePrice = $('#sale_price');
-        var publisher = $('#publisher');
-
-        var damageFalse = $('#Damage_False');
-        var damageTrue = $('#Damage_True');
-
-        var underlineHighlighter = $('#Underline_Highlighter');
-        var underlinePencil = $('#Underline_Pencil');
-        var underlineNone = $('#Underline_None');
-
-        var noteHighlighter = $('#Note_Highlighter');
-        var notePencil = $('#Note_Pencil');
-        var noteNone = $('#Note_None');
-
-        var coverClean = $('#Cover_Clean');
-        var coverDirty = $('#Cover_Dirty');
-
-        var negotiable = $('#Negotiable');
-
-        var dealPlace = $('#deal_place');
-
-
-
-
-
-    }
-
 
 
 </script>

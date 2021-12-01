@@ -19,22 +19,9 @@ public class MainController
     @GetMapping(path = "/login/searchAccount")
     public String SearchAccount() { return "login/searchAccount"; }
 
-    // 판매 목록 리스트 페이지로 이동
-    @GetMapping(path = "/main/ProductList")
-    public String ProductList() { return "main/ProductList"; }
-
-    // 판매 등록 페이지로 이동
-    @GetMapping(path = "/main/sellProduct")
-    public String sellProduct() { return "main/sellProduct"; }
-
-    // 계정 생성 페이지로 이동
-    @GetMapping(path = "/chat")
-    public String Chat() { return "chat"; }
-
     // 프로필 페이지로 이동
     @GetMapping(path = "/UserProfile")
     public String ToCreateAccoungPage() { return "UserProfile"; }
-
 
 
 }
