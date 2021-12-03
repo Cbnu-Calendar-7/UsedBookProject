@@ -1099,12 +1099,12 @@ ul.pagination .active a {
   color: #fff;
 }
 
-.dashboard-container tbody tr:hover .action a.edit {
-  background: #59d659;
+.dashboard-container tbody tr:hover .action a.contactt {
+  background: #fef01b;
 }
 
-.dashboard-container tbody tr:hover .action a.view {
-  background: #50c6e9;
+.dashboard-container tbody tr:hover .action a.archivee {
+  background: red;
 }
 
 .dashboard-container tbody tr:hover .action a.delete {
@@ -1175,7 +1175,7 @@ ul.pagination .active a {
   background: #f7f7f7;
 }
 
-.dashboard-container .action .view {
+.dashboard-container .action .archivee {
   background: #f7f7f7;
 }
 
@@ -1672,7 +1672,7 @@ ul.pagination .active a {
 .widget {
   background: #fff;
   box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.1);
-  padding: 25px 30px 30px;
+  padding: 0px 30px 0px 0px;
   margin-bottom: 30px;
   border-radius: 2px;
 }

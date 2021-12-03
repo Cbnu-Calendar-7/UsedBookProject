@@ -125,10 +125,11 @@
 				</div>
 
 			</div>
+
 			<div class="col-md-10 offset-md-1 col-lg-8 offset-lg-0">
 				<!-- Recently Favorited -->
 				<div class="widget dashboard-container my-adslist">
-					<h3 class="widget-header">My Ads</h3>
+					<h3 class="widget-header">Archive Items</h3>
 					<table class="table table-responsive product-dashboard-table">
 
 						<!-- 테이블 헤더 -->
@@ -145,8 +146,9 @@
 
 						<tr th:each="item : ${list}">
 							<!-- 제품 이미지 -->
-							<td class="product-thumb">
-								<img width="80px" height="auto" th:src="${item.getImageLink()}" alt="image description"></td>
+							<td class="product-thumb justify-content-center ">
+								<img alt="image description" height="auto" style="margin: 1em;" th:src="${item.getImageLink()}" width="160px">
+							</td>
 
 							<!-- 제품 정보 -->
 							<td class="product-details">
