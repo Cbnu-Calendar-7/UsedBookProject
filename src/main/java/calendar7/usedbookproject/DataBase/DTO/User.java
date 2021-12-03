@@ -24,6 +24,7 @@ public class User
     private String wishlist; // 찜리스트
     private String chatlist; // 채팅리스트
 
+    private String studentIdCardImgLink; // 학생증사진
     private Boolean permission; // 승인/미승인 여부 (true : 승인, false : 미승인)
 
 
@@ -38,6 +39,7 @@ public class User
         this.saleslist = "";
         this.wishlist = "";
         this.chatlist = "";
+        this.studentIdCardImgLink = "";
         this.permission = false;
     }
 
@@ -55,6 +57,7 @@ public class User
                 ", saleslist='" + saleslist + '\'' +
                 ", wishlist='" + wishlist + '\'' +
                 ", chatlist='" + chatlist + '\'' +
+                ", studentIdCardLink='" + studentIdCardImgLink + '\'' +
                 ", permission=" + permission +
                 '}';
     }
