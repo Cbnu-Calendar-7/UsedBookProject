@@ -80,6 +80,10 @@ public class NaverAPIBookSearchService
             publisher = publisher.replace("<b>", "")
                     .replace("</b>", "");
 
+            // 받아오는 작가 이름에서 <b></b> 태그 붙은 것 제거.
+            author = author.replace("<b>", "")
+                    .replace("</b>", "");
+
 
             // 10자리 13자리 ISBN으로 분리
             String ISBN = tmp.get("isbn").toString();
