@@ -6,7 +6,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Classimax</title>
+  <title>Product List</title>
   
   <!-- FAVICON -->
   <link href="img/favicon.png" rel="shortcut icon">
@@ -62,12 +62,15 @@
 				<div class="advance-search">
 					<form action="/list" method="get" name="searchform" onsubmit="return validform()">
 						<div class="form-row">
+
 							<div class="form-group col-md-10">
-								<input class="form-control my-2 my-lg-0" name="keyword" placeholder="Search keyword" type="text">
+								<input class="form-control my-2 my-lg-0" name="keyword" placeholder="Please write down the title of the book you're looking for." type="text">
 							</div>
+
 							<div class="form-group col-md-2">
 								<button class="btn btn-primary" id="searchTextButton" style="background-color:transparent; color: white; border-color: white;" type="submit">search</button>
 							</div>
+
 						</div>
 					</form>
 				</div>
@@ -80,16 +83,15 @@
 <section class="section-sm">
 	<div class="container">
 
-
+		<!-- 검색 갯수, 날짜 -->
 		<div class="row">
 			<div class="col-md-12">
 				<div class="search-result bg-gray">
-					<h2 th:text=" 'result of' + '&quot;' + ${keyword.get()} + '&quot;'"></h2>
-					<p th:text=" 'about&nbsp;' + ${items.size()} + '&nbsp;results&nbsp;' + ${#dates.format(date, 'yyyy/MM/dd HH:mm')}" ></p>
+					<h2 th:text=" 'result of ' + '&quot;' + ${keyword.get()} + '&quot;'"></h2>
+					<p th:text=" 'About ' + ${items.size()} + ' results ' + ${#dates.format(date, 'yyyy/MM/dd HH:mm')}" ></p>
 				</div>
 			</div>
 		</div>
-
 
         <div class="row">
 			<div class="col-md-12">
@@ -121,113 +123,6 @@
 				</div>
 
 				<!-- 검색 리스트 시작  -->
-				<div class="ad-listing-list mt-20" th:each="item : ${items}">
-                    <div class="row">
-
-						<!--상품 이미지-->
-                        <div class="col-lg-2 align-self-center">
-                            <a href="../themes/single.html">
-                            <img alt="book img" class="img-fluid" width="160px" height="auto" th:src="${item.imageLink}">
-                            </a>
-                        </div>
-
-                    	<div class="col">
-                        	<div class="row">
-
-								<div class="col"><br>
-									<div>
-										<a href="../themes/single.html" class="font-weight-bold" th:text="${item.title}"></a>
-									</div>
-									<ul class="list-inline mt-2 mb-3">
-										<!-- 지은이 -->
-										<li class="list-inline-item">
-											<i class="bi bi-pencil"></i>
-											<a th:text="${item.author}"></a>
-										</li>
-
-										<!-- 출판사 -->
-										<li class="list-inline-item">
-											<i class="bi bi-building"></i>
-											<a th:text="${item.publisher}"></a>
-										</li>
-
-										<!-- 출판일 -->
-										<li class="list-inline-item">
-											<i class="bi bi-calendar2-day"></i>
-											<a th:text="${item.publicationDate}"></a>
-										</li>
-										<br>
-										<li class="list-inline-item">
-											<i class="bi bi-caret-right"></i>
-											<a th:if="${item.dealMethod} == 0" th:text=" 'direct(' + ${item.dealPlace.toString()} + ')' "></a>
-											<a th:text="parcel" th:unless="${item.dealMethod} == 0"></a>
-										</li>
-
-										<li class="list-inline-item">
-											<i class="bi bi-caret-right"></i>
-											<a th:if="${item.negotiable} != 0" th:text="'Negotaible'"></a>
-											<a th:unless="${item.negotiable} != 0" th:text="'Unnegotiable'"></a>
-										</li>
-									</ul>
-
-									<div>
-										<a class="text-danger font-weight-bold" th:text=" 'Price : ' + ${item.salePrice} + 'Won' "></a><br>
-										<small class="text-muted" th:text=" 'origin price : ' + ${item.originPrice} + 'Won' "></small>
-									</div>
-								</div>
-								<div class="col-3" style="font-size: 14px;"><br>
-									<h6>Book Condition</h6>
-									<div>
-										<a style="font-weight: bold">underlined</a>
-										<a th:if="${item.underline == 0}" th:class="font-weight-light">none</a>
-										<a th:if="${item.underline == 1}" th:class="font-weight-light">erasable</a>
-										<a th:if="${item.underline == 2}" th:class="font-weight-light">non-erasable</a>
-									</div>
-									<div>
-										<a style="font-weight: bold">noted</a>
-										<a th:if="${item.note == 0}" th:class="font-weight-light">none</a>
-										<a th:if="${item.note == 1}" th:class="font-weight-light">erasable</a>
-										<a th:if="${item.note == 2}" th:class="font-weight-light">non-erasable</a>
-									</div>
-									<div>
-										<a style="font-weight: bold">discoloration/damaged</a>
-										<a th:if="${item.damage != 0}" th:class="font-weight-light">none</a>
-										<a th:unless="${item.damage != 0}" th:class="font-weight-light">exist</a>
-									</div>
-									<div>
-										<a style="font-weight: bold">book cover</a>
-										<a th:if="${item.cover == 0}" th:class="font-weight-light">clean</a>
-										<a th:if="${item.cover == 1}" th:class="font-weight-light">little dirty</a>
-										<a th:if="${item.cover == 2}" th:class="font-weight-light">very dirty</a>
-									</div>
-								</div>
-								<div class="col"><br>
-									<p style="font-weight: bolder; color: #1b1e21;" th:text="${item.detail}"></p>
-								</div>
-
-								<div class="col-3">
-									<br>
-									<div class="row justify-content-center">
-										<a class="btn btn-sm btn-outline-warning " style="font-size: 14px;" th:href="${item.kakaoTalkUrl}">
-											contact
-										</a>
-									</div>
-									<br>
-									<div class="row justify-content-center ">
-										<a class="btn btn-sm btn-outline-danger " style="font-size: 14px;">
-											add wishlist
-										</a>
-									</div>
-								</div>
-
-                    		</div>
-                		</div>
-    				</div>
-
-
-
-				</div>
-
 				<div class="ad-listing-list mt-20">
 					<!-- Recently Favorited -->
 					<div class="widget dashboard-container my-adslist">
@@ -237,6 +132,7 @@
 							<tbody>
 
 							<tr th:each="item : ${items}">
+
 								<!-- 제품 이미지 -->
 								<td class="product-thumb">
 									<img alt="image description" height="auto" style="margin-right: 15px" th:src="${item.getImageLink()}" width="180px"></td>
@@ -265,6 +161,7 @@
 									</div>
 								</td>
 
+								<!-- 책 상태 -->
 								<td class="product-details">
 									<h3 class="title">Book Condition</h3>
 									<div>
@@ -297,19 +194,19 @@
 									<div class="">
 										<ul class="list-inline justify-content-center">
 
+											<!-- Archive 버튼 -->
 											<li class="list-inline-item" style="padding-bottom: 10px">
 												<a class="archivee "  data-placement="top" data-toggle="tooltip" href="#" title="Archive">
 													<i class="bi bi-heart-fill"></i>
 												</a>
 											</li>
 
+											<!-- Contact 버튼 -->
 											<li class="list-inline-item" style="padding-bottom: 8px">
-												<a class="contactt" data-placement="top" data-toggle="tooltip" href="" title="Contact">
+												<a class="contactt" data-placement="top" data-toggle="tooltip" th:href="${item.getKakaoTalkUrl()}" title="Contact to Seller">
 													<i class="bi bi-chat-fill"></i>
 												</a>
 											</li>
-
-
 
 										</ul>
 									</div>
@@ -409,7 +306,7 @@
 		var keyword = document.forms["searchform"]["keyword"].value;
 
 		if (keyword == null || keyword == "") {
-			alert("please enter search keyword!");
+			alert("Please enter search keyword!");
 			return false;
 		}
 	}
