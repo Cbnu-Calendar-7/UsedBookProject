@@ -83,7 +83,7 @@
 					<div class="widget user-dashboard-menu">
 						<ul>
 							<li>
-								<a href="/mylist"><i class="fa fa-user"></i>My Ads</a>
+								<a href="/mylist"><i class="fa fa-user"></i>My Sale List</a>
 							</li>
 							<li class="active">
 								<a href="/archive"><i class="fa fa-file-archive-o"></i>Archeved Ads<span th:text="${list.size()}"></span></a>
@@ -146,9 +146,8 @@
 
 						<tr th:each="item : ${list}">
 							<!-- 제품 이미지 -->
-							<td class="product-thumb justify-content-center ">
-								<img alt="image description" height="auto" style="margin: 1em;" th:src="${item.getImageLink()}" width="160px">
-							</td>
+							<td class="product-thumb">
+								<img width="80px" height="auto" th:src="${item.getImageLink()}" alt="image description"></td>
 
 							<!-- 제품 정보 -->
 							<td class="product-details">
@@ -159,31 +158,23 @@
 								<span class="status active"><strong>State:</strong>On sale</span>
 							</td>
 
-							<!-- 액션 (조회, 삭제, 수정 등) -->
+							<!-- 액션 (삭제, 수정 등) -->
 							<td class="action" data-title="Action">
 								<div class="">
 									<ul class="list-inline justify-content-center">
-										<li class="list-inline-item">
-											<a class="view" data-placement="top" data-toggle="tooltip" href="../themes/category.html" title="View">
-												<i class="fa fa-eye"></i>
+
+										<!-- Contact 버튼 -->
+										<li class="list-inline-item" style="padding-bottom: 8px">
+											<a class="contactt" data-placement="top" data-toggle="tooltip" th:href="${item.getKakaoTalkUrl()}" title="Contact to Seller">
+												<i class="bi bi-chat-fill"></i>
 											</a>
 										</li>
-										<li class="list-inline-item">
-											<a data-toggle="tooltip" data-placement="top" title="Edit" class="edit" href="">
-												<i class="fa fa-pencil"></i>
-											</a>
-										</li>
-										<li class="list-inline-item">
-											<a data-toggle="tooltip" data-placement="top" title="Delete" class="delete" th:href=" '/delete?postid=' + ${item.getPostID()} + '&redirecturl=archive'">
-												<i class="fa fa-trash"></i>
-											</a>
-										</li>
+
 									</ul>
 								</div>
 							</td>
 
 						</tr>
-
 						</tbody>
 
 					</table>

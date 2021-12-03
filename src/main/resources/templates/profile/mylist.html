@@ -82,7 +82,7 @@
 					<div class="widget user-dashboard-menu">
 						<ul>
 							<li class="active">
-								<a href="/mylist"><i class="fa fa-user"></i>My Ads<span th:text="${list.size()}"></span></a>
+								<a href="/mylist"><i class="fa fa-user"></i>My Sale List<span th:text="${list.size()}"></span></a>
 							</li>
 							<li>
 								<a href="/archive"><i class="fa fa-file-archive-o"></i>Archeved Items</a>
@@ -130,7 +130,7 @@
 
 				<!-- Recently Favorited -->
 				<div class="widget dashboard-container my-adslist">
-					<h3 class="widget-header">My Ads</h3>
+					<h3 class="widget-header">My Sale List</h3>
 					<table class="table table-responsive product-dashboard-table">
 
 						<!-- 테이블 헤더 -->
@@ -158,25 +158,23 @@
 									<span class="status active"><strong>State:</strong>On sale</span>
 								</td>
 
-								<!-- 액션 (조회, 삭제, 수정 등) -->
+								<!-- 액션 (삭제, 수정 등) -->
 								<td class="action" data-title="Action">
 									<div class="">
 										<ul class="list-inline justify-content-center">
-											<li class="list-inline-item">
-												<a class="view" data-placement="top" data-toggle="tooltip" href="../themes/category.html" title="View">
-													<i class="fa fa-eye"></i>
-												</a>
-											</li>
+
 											<li class="list-inline-item">
 												<a data-toggle="tooltip" data-placement="top" title="Edit" class="edit" href="">
 													<i class="fa fa-pencil"></i>
 												</a>
 											</li>
+
 											<li class="list-inline-item">
 												<a data-toggle="tooltip" data-placement="top" title="Delete" class="delete" th:href=" '/delete?postid=' + ${item.getPostID()} + '&redirecturl=mylist'">
 													<i class="fa fa-trash"></i>
 												</a>
 											</li>
+
 										</ul>
 									</div>
 								</td>

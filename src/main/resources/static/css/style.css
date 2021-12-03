@@ -1111,6 +1111,10 @@ ul.pagination .active a {
   background: #ff5252;
 }
 
+.dashboard-container tbody tr:hover .action a.edit {
+  background: lawngreen;
+}
+
 .dashboard-container .product-details {
   width: 45%;
 }
@@ -1161,6 +1165,10 @@ ul.pagination .active a {
 
 .dashboard-container .action a:hover.delete {
   background: #ff5252;
+}
+
+.dashboard-container .action a:hover.edit {
+  background: lawngreen;
 }
 
 .dashboard-container .action a i {
