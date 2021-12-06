@@ -61,4 +61,15 @@ public class User
                 ", permission=" + permission +
                 '}';
     }
+
+    public void addWishList(String newItem)
+    {
+        this.wishlist += newItem + ",";
+    }
+
+    public void addSaleList(String newItem)
+    {
+        this.saleslist += newItem + ",";
+    }
+
 }

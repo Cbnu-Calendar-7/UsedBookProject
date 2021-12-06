@@ -37,16 +37,25 @@
 		<div class="row">
 			<div class="col-md-12">
 				<nav class="navbar navbar-expand-sm navbar-light">
-					<a class="navbar-brand" href="../themes/index.html" style="font-size: 25px;">Calendar</a>
+
+					<a class="navbar-brand" href="/list" style="font-size: 25px;">Calendar</a>
+
 					<div class="collapse navbar-collapse" id="navbarSupportedContent">
 						<ul class="navbar-nav ml-auto mt-10">
+
+							<li style="padding-top: 20px">
+								<h4 th:text="${user.nickname}"></h4>
+							</li>
+
 							<li class="nav-item">
+
 								<a class="nav-link text-white" href="/mylist">
 									<img height="50px" src="images/user_icon.png" width="50px	">
 								</a>
 							</li>
 						</ul>
 					</div>
+
 				</nav>
 			</div>
 		</div>
@@ -64,7 +73,7 @@
 						<div class="form-row">
 
 							<div class="form-group col-md-10">
-								<input class="form-control my-2 my-lg-0" name="keyword" placeholder="Please write down the title of the book you're looking for." type="text">
+								<input class="form-control my-2 my-lg-0" name="keyword" placeholder="Please write down the title of the book what you're looking for." type="text">
 							</div>
 
 							<div class="form-group col-md-2">
@@ -125,7 +134,7 @@
 				<!-- 검색 리스트 시작  -->
 				<div class="ad-listing-list mt-20">
 					<!-- Recently Favorited -->
-					<div class="widget dashboard-container my-adslist">
+					<div class="widget dashboard-container">
 						<table class="table product-dashboard-table">
 
 							<!-- 테이블 바디-->
@@ -196,7 +205,7 @@
 
 											<!-- Archive 버튼 -->
 											<li class="list-inline-item" style="padding-bottom: 10px">
-												<a class="archivee "  data-placement="top" data-toggle="tooltip" href="#" title="Archive">
+												<a class="archivee "  data-placement="top" data-toggle="tooltip" onclick="archive()" th:href="${user.addWishList(item.getPostID())}" title="Archive">
 													<i class="bi bi-heart-fill"></i>
 												</a>
 											</li>
@@ -309,6 +318,11 @@
 			alert("Please enter search keyword!");
 			return false;
 		}
+	}
+
+	function archive()
+	{
+		alert("Archived!");
 	}
 
 </script>

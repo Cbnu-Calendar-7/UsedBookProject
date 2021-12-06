@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -78,35 +78,45 @@
   </style>
 </head>
 <body class="text-center">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-        crossorigin="anonymous"></script>
 
+<!-- 로그인 폼 -->
 <main class="form-signin" id="content">
-  <form action="" method="get">
+  <form action="/login"  th:object="${loginForm}" method="post">
 
+    <!-- 충북대 로고 -->
     <img alt="logo img" class="mb-4" height="246px" src="images/logo2.jpg" width="246px">
 
-    <div class="form-floating">
-      <input type="text" class="form-control" id="floatingInput" placeholder="ID">
-      <label for="floatingInput">ID</label>
+    <!-- 에러 메세지 -->
+    <div th:if="${#fields.hasGlobalErrors()}">
+      <p class="field-error text-danger" th:each="err : ${#fields.globalErrors()}" th:text="${err}">전체 오류 메시지</p>
     </div>
 
+    <!-- 아이디 입력-->
     <div class="form-floating">
-      <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-      <label for="floatingPassword">Password</label>
+      <input type="text" class="form-control" th:field="*{loginId}" id="loginId" placeholder="Login ID" th:errorclass="field-error">
+      <label for="loginid">Login ID</label>
     </div>
 
+    <!-- 비밀번호 입력 -->
+    <div class="form-floating">
+      <input type="password" class="form-control" th:field="*{password}" id="password" placeholder="Password" th:errorclass="field-error">
+      <label for="password">Password</label>
+    </div>
 
-    <button class="w-100 btn btn-lg btn-primary" type="submit">SIgn In</button>
+    <!-- 로그인 버튼 -->
+    <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
 
-
+    <!-- 링크 -->
     <a class="link-dark" href="/login/createAccount"><br></br>Sign Up</a><br><br>
     <a class="link-dark" href="/login/searchAccount">find ID/Password</a>
     <p class="mt-5 mb-3 text-muted">Created by Team Calendar</p>
 
   </form>
+
 </main>
 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
 </body>
 </html>

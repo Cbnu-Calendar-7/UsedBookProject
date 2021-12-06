@@ -49,23 +49,101 @@
             background: blue;
         }
     </style>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <!-- FAVICON -->
+    <link href="img/favicon.png" rel="shortcut icon">
+    <!-- PLUGINS CSS STYLE -->
+    <!-- <link href="plugins/jquery-ui/jquery-ui.min.css" rel="stylesheet"> -->
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="plugins/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="plugins/bootstrap/css/bootstrap-slider.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
+    <!-- Font Awesome -->
+    <link href="plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!-- Owl Carousel -->
+    <link href="plugins/slick-carousel/slick/slick.css" rel="stylesheet">
+    <link href="plugins/slick-carousel/slick/slick-theme.css" rel="stylesheet">
+    <!-- Fancy Box -->
+    <link href="plugins/fancybox/jquery.fancybox.pack.css" rel="stylesheet">
+    <link href="plugins/jquery-nice-select/css/nice-select.css" rel="stylesheet">
+    <!-- CUSTOM CSS -->
+    <link href="css/style.css" rel="stylesheet">
 </head>
 <body>
-<div class="container">
-    <div class="row height d-flex justify-content-center align-items-center">
-        <div class="col-md-8">
-            <form action="/list" class="justify-content-center" method="get" name="searchform" onsubmit="return validform()">
-                <div class="search">
-                    <i class="fa fa-search"></i>
-                    <input class="form-control" id="searchtext" name="keyword" placeholder="search keyword" type="text">
-                    <button class="btn btn-primary">search</button>
-                </div>
-            </form>
+
+<!--네비 바-->
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <nav class="navbar navbar-expand-sm navbar-light">
+
+                    <a class="navbar-brand" href="/list" style="font-size: 25px;">Calendar</a>
+
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ml-auto mt-10">
+
+                            <li style="padding-top: 20px">
+                                <h4 th:text="${user.nickname}"></h4>
+                            </li>
+
+                            <li class="nav-item">
+
+                                <a class="nav-link text-white" href="/mylist">
+                                    <img height="50px" src="images/user_icon.png" width="50px	">
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                </nav>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div style="background: linear-gradient(to right, #fbc2eb, #a6c1ee);">
+    <div class="container" >
+        <div class="row height d-flex justify-content-center align-items-center">
+            <div class="col-md-8">
+                <form action="/list" method="get" name="searchform" onsubmit="return validform()">
+                    <div class="search">
+                        <i class="fa fa-search"></i>
+                        <input class="form-control form-control-lg" id="searchtext" name="keyword" placeholder="Please write down the title of the book you are looking for." type="text">
+                        <button class="btn btn-primary">search</button>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
 </div>
+
+<!-- Footer Bottom -->
+<footer class="footer-bottom">
+    <!-- Container Start -->
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6 col-12">
+                <!-- Copyright -->
+                <div class="copyright">
+                    <p>Team Calendar <script>
+                        var CurrentYear = new Date().getFullYear()
+                        document.write(CurrentYear)
+                    </script> Theme by
+                        <a class="text-primary" href="https://themefisher.com" target="_blank">
+                            themefisher.com
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Container End -->
+    <!-- To Top -->
+    <div class="top-to">
+        <a id="top" class="" href="#"><i class="fa fa-angle-up"></i></a>
+    </div>
+</footer>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script>

@@ -2,7 +2,9 @@ package calendar7.usedbookproject.Controller;
 
 import calendar7.usedbookproject.DataBase.DAO.SalePostRepository;
 import calendar7.usedbookproject.DataBase.DTO.SalePost;
+import calendar7.usedbookproject.DataBase.DTO.User;
 import calendar7.usedbookproject.Service.FileUpload.StorageService;
+import calendar7.usedbookproject.Service.Login.SessionConstants;
 import calendar7.usedbookproject.Service.Search.SearchService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.lang.Nullable;
@@ -13,6 +15,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.Date;
 import java.util.List;
 import java.util.Objects;
@@ -35,7 +39,10 @@ public class    PostingController
     }
 
     @GetMapping(path = "/add")
-    public String SalePostAdd() { return "main/Add_Post"; }
+    public String SalePostAdd()
+    {
+        return "main/Add_Post";
+    }
 
     @GetMapping(path = "/delete")
     public String SalePostDelete(@RequestParam("postid") Long postid, @RequestParam("redirecturl") String redirecturl)
@@ -45,8 +52,26 @@ public class    PostingController
     }
 
     @GetMapping(path = "/list")
-    public String list(Model model, @RequestParam(value = "keyword") @Nullable Optional<String> keyword)
+    public String list(Model model, @RequestParam(value = "keyword") @Nullable Optional<String> keyword, HttpServletRequest request)
     {
+
+        // 세션이 없으면 로그인 페이지로 이동
+        HttpSession session = request.getSession(false);
+        if (session == null)
+        {
+            return "/login/loginform";
+        }
+
+        // 세션에 저장된 회원 조회
+        User loginMember = (User) session.getAttribute(SessionConstants.LOGIN_MEMBER);
+
+        // 세션에 회원 데이터가 없으면 홈으로 이동
+        if (loginMember == null) {
+            return "/login/loginform";
+        }
+
+        model.addAttribute("user", loginMember);
+
         if(keyword.isPresent())
         {
             // 검색결과, 검색 키워드, 검색 날짜를 넘긴다.
@@ -54,6 +79,7 @@ public class    PostingController
             model.addAttribute("items", list);
             model.addAttribute("keyword", keyword);
             model.addAttribute("date", new Date());
+
             return "main/List_View";
         }
         return "main/Search_Page";
@@ -65,7 +91,7 @@ public class    PostingController
                           @RequestParam("publisher") String Publisher, @RequestParam("publication_date") String publication_date, @RequestParam("origin_price") String Origin_price,
                           @RequestParam("sale_price") String Sale_price, @RequestParam("Negotiable") Optional<String> Negotiable, @RequestParam("Underline") String Underline,
                           @RequestParam("Note") String Note, @RequestParam("Damage") String Damage, @RequestParam("Cover") String Cover, @RequestParam("deal_place") Optional<String> deal_place,
-                          @RequestParam("isbn10") String isbn10, @RequestParam("isbn13") String isbn13)
+                          @RequestParam("isbn10") String isbn10, @RequestParam("isbn13") String isbn13, HttpServletRequest request, Model model)
     {
 
         SalePost newpost = new SalePost("TestID", "01012345678", "TestNick");
@@ -107,7 +133,24 @@ public class    PostingController
         String imagename = storageService.store(file);
         newpost.setImageLink("image?fileName=" + imagename);
 
-        postRepo.save(newpost);
+        Long postID = postRepo.save(newpost).getPostID();
+
+        // 세션이 없으면 로그인 페이지로 이동
+        HttpSession session = request.getSession(false);
+        if (session == null)
+        {
+            return "/login/loginform";
+        }
+
+        // 세션에 저장된 회원 조회
+        User user = (User) session.getAttribute(SessionConstants.LOGIN_MEMBER);
+
+        // 세션에 회원 데이터가 없으면 홈으로 이동
+        if (user == null) {
+            return "/login/loginform";
+        }
+
+        user.addSaleList(postID.toString());
 
         return "redirect:/list";
     }
